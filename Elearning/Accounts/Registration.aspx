@@ -115,6 +115,8 @@
 													<asp:TextBox ID="txtConfirmPassword" class="pass-inputs form-control" runat="server" TextMode="Password"></asp:TextBox>
 													
 													<span class="ti toggle-passwords ti-eye-off text-info""></span>
+
+													<asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="password not matched" ControlToValidate="txtPassword" ControlToCompare="txtConfirmPassword"></asp:CompareValidator>
 												</div>
 											</div>
 											<div class="d-flex align-items-center justify-content-between mb-3">
