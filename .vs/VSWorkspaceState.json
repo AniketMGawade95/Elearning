@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Elearning",
+    "\\Elearning\\Accounts",
     "\\Elearning\\MasterPages"
   ],
-  "SelectedNode": "\\Elearning\\MasterPages\\User.Master.cs",
+  "SelectedNode": "\\Elearning\\Accounts\\Registration.aspx",
   "PreviewInSolutionExplorer": false
 }
