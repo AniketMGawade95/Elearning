@@ -61,86 +61,124 @@
 											<%--<img src="assets/img/logo.svg" class="img-fluid" alt="Logo">--%>
 											<h1 class="m-0 text-uppercase text-info"><i class="fa fa-book-reader mr-3"></i>Elearning</h1>
 										</div>
+
+
+
+
+
+
+
+
+
+
+
 										<div class="">
-											<div class="text-center mb-3">
-												<h2 class="mb-2 text-info">Registration</h2>
-												<p class="mb-0">Please enter your details to sign up</p>
-											</div>
+	<div class="text-center mb-3">
+		<h2 class="mb-2 text-info">Registration</h2>
+		<p class="mb-0">Please enter your details to sign up</p>
+	</div>
 
-											<div class="mb-3">
-    <label class="form-label">Profile Picture</label>
-    <div class="input-group">
-        <%--<input type="file" id="fuProfilePic" runat="server" class="form-control" accept="image/*" />--%>
-		<asp:FileUpload ID="FileUpload1" class="form-control" runat="server" />
-        <span class="input-group-text text-info">
-            <i class="ti ti-camera"></i>
-        </span>
-    </div>
-</div>
+	<div class="mb-3">
+		<label class="form-label">Profile Picture</label>
+		<div class="input-group">
+			<asp:FileUpload ID="FileUpload1" class="form-control" runat="server" />
+			<span class="input-group-text text-info"><i class="ti ti-camera"></i></span>
+		</div>
+	</div>
 
-											<div class="mb-3">
-												<label class="form-label">Name</label>
-												<div class="input-group">
-													
+	<div class="mb-3">
+		<label class="form-label">Name</label>
+		<div class="input-group">
+			<asp:TextBox ID="txtName" runat="server" CssClass="form-control border-end-0" />
+			<span class="input-group-text border-start-0 text-info"><i class="ti ti-user"></i></span>
+		</div>
+		<asp:RequiredFieldValidator ID="rfvName" runat="server" 
+			ControlToValidate="txtName" 
+			ErrorMessage="Name is required" 
+			ForeColor="Red" 
+			Display="Dynamic" 
+			ValidationGroup="RegisterGroup" />
+	</div>
 
-													<asp:TextBox ID="txtName" runat="server" class="form-control border-end-0"></asp:TextBox>
-													<span class="input-group-text border-start-0 text-info">
-														<i class="ti ti-user"></i>
-													</span>
-												</div>
-											</div>
-											<div class="mb-3">
-												<label class="form-label">Email Address</label>
-												<div class="input-group">
-													
-													<asp:TextBox ID="txtEmail" runat="server"  class="form-control border-end-0" TextMode="Email"></asp:TextBox>
+	<div class="mb-3">
+		<label class="form-label">Email Address</label>
+		<div class="input-group">
+			<asp:TextBox ID="txtEmail" runat="server" CssClass="form-control border-end-0" TextMode="Email" />
+			<span class="input-group-text border-start-0 text-info"><i class="ti ti-mail"></i></span>
+		</div>
+		<asp:RequiredFieldValidator ID="rfvEmail" runat="server" 
+			ControlToValidate="txtEmail" 
+			ErrorMessage="Email is required" 
+			ForeColor="Red" 
+			Display="Dynamic" 
+			ValidationGroup="RegisterGroup" />
+	</div>
 
-													<span class="input-group-text border-start-0 text-info"">
-														<i class="ti ti-mail"></i>
-													</span>
-												</div>
-											</div>
-											<div class="mb-3">
-												<label class="form-label">Password</label>
-												<div class="pass-group">
-													
-													<asp:TextBox ID="txtPassword" runat="server" class="pass-input form-control" TextMode="Password"></asp:TextBox>
-													<span class="ti toggle-password ti-eye-off text-info""></span>
-												</div>
-											</div>
-											<div class="mb-3">
-												<label class="form-label">Confirm Password</label>
-												<div class="pass-group">
-													
-													<asp:TextBox ID="txtConfirmPassword" class="pass-inputs form-control" runat="server" TextMode="Password"></asp:TextBox>
-													
-													<span class="ti toggle-passwords ti-eye-off text-info""></span>
+	<div class="mb-3">
+		<label class="form-label">Password</label>
+		<div class="pass-group">
+			<asp:TextBox ID="txtPassword" runat="server" CssClass="pass-input form-control" TextMode="Password" />
+			<span class="ti toggle-password ti-eye-off text-info"></span>
+		</div>
+		<asp:RequiredFieldValidator ID="rfvPassword" runat="server" 
+			ControlToValidate="txtPassword" 
+			ErrorMessage="Password is required" 
+			ForeColor="Red" 
+			Display="Dynamic" 
+			ValidationGroup="RegisterGroup" />
+	</div>
 
-													<asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="password not matched" ControlToValidate="txtPassword" ControlToCompare="txtConfirmPassword"></asp:CompareValidator>
-												</div>
-											</div>
-											<div class="d-flex align-items-center justify-content-between mb-3">
-												<div class="d-flex align-items-center">
-													<div class="form-check form-check-md mb-0">
-														<input class="form-check-input  form-checked-info" id="remember_me" type="checkbox">
-														<label for="remember_me" class="form-check-label text-dark mt-0">Agree to <span class="text-info">Terms & Privacy</span></label>
-													</div>
-												</div>
-											</div>
-											<div class="mb-3">
-												
+	<div class="mb-3">
+		<label class="form-label">Confirm Password</label>
+		<div class="pass-group">
+			<asp:TextBox ID="txtConfirmPassword" runat="server" CssClass="pass-inputs form-control" TextMode="Password" />
+			<span class="ti toggle-passwords ti-eye-off text-info"></span>
+		</div>
+		<asp:RequiredFieldValidator ID="rfvConfirmPassword" runat="server" 
+			ControlToValidate="txtConfirmPassword" 
+			ErrorMessage="Confirm Password is required" 
+			ForeColor="Red" 
+			Display="Dynamic" 
+			ValidationGroup="RegisterGroup" />
+		<asp:CompareValidator ID="cvPasswords" runat="server"
+			ControlToCompare="txtPassword"
+			ControlToValidate="txtConfirmPassword"
+			ErrorMessage="Passwords do not match"
+			ForeColor="Red"
+			Display="Dynamic"
+			ValidationGroup="RegisterGroup" />
+	</div>
 
-												<asp:Button ID="btnRegister" runat="server" class="btn btn-info w-100" Text="Register" OnClick="btnRegister_Click" />
-											</div>
-											<div class="text-center">
-												<h6 class="fw-normal text-dark mb-0">Already have an account?
-													
-													<asp:HyperLink ID="HyperLink1" class="hover-a link-info" runat="server" NavigateUrl="~/Accounts/Login.aspx">Login</asp:HyperLink>
-												</h6>
-											</div>
-											<div class="login-or">
-												<span class="span-or">Or</span>
-											</div>
+	<div class="d-flex align-items-center justify-content-between mb-3">
+		<div class="d-flex align-items-center">
+			<div class="form-check form-check-md mb-0">
+				<input class="form-check-input form-checked-info" id="remember_me" type="checkbox" />
+				<label for="remember_me" class="form-check-label text-dark mt-0">Agree to <span class="text-info">Terms & Privacy</span></label>
+			</div>
+		</div>
+	</div>
+
+	<div class="mb-3">
+		<asp:Button ID="btnRegister" runat="server" 
+			CssClass="btn btn-info w-100" 
+			Text="Register" 
+			OnClick="btnRegister_Click" 
+			ValidationGroup="RegisterGroup" />
+	</div>
+
+	<div class="text-center">
+		<h6 class="fw-normal text-dark mb-0">Already have an account?
+			<asp:HyperLink ID="HyperLink1" CssClass="hover-a link-info" runat="server" NavigateUrl="~/Accounts/Login.aspx">Login</asp:HyperLink>
+		</h6>
+	</div>
+
+	<div class="login-or">
+		<span class="span-or">Or</span>
+	</div>
+
+
+
+
 											<div class="mt-2">
 												<div class="d-flex align-items-center justify-content-center flex-wrap">
 													<div class="text-center me-2 flex-fill">
@@ -164,6 +202,14 @@
 												</div>
 											</div>
 										</div>
+
+
+
+
+
+
+
+
 										<div class="mt-5 pb-4 text-center">
 											<p class="mb-0 text-gray-9">Copyright &copy; 2025 - <text class="text-info">Elearning</text></p>
 										</div>

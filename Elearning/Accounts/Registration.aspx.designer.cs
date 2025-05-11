@@ -42,6 +42,15 @@ namespace Elearning.Accounts
         protected global::System.Web.UI.WebControls.TextBox txtName;
 
         /// <summary>
+        /// rfvName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvName;
+
+        /// <summary>
         /// txtEmail control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace Elearning.Accounts
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
+
+        /// <summary>
+        /// rfvEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
 
         /// <summary>
         /// txtPassword control.
@@ -60,6 +78,15 @@ namespace Elearning.Accounts
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
 
         /// <summary>
+        /// rfvPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
+
+        /// <summary>
         /// txtConfirmPassword control.
         /// </summary>
         /// <remarks>
@@ -69,13 +96,22 @@ namespace Elearning.Accounts
         protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
 
         /// <summary>
-        /// CompareValidator1 control.
+        /// rfvConfirmPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvConfirmPassword;
+
+        /// <summary>
+        /// cvPasswords control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvPasswords;
 
         /// <summary>
         /// btnRegister control.
