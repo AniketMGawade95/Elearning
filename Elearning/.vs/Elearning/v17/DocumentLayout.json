@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "E:\\Github\\Elearning\\Elearning\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|E:\\Github\\Elearning\\Elearning\\accounts\\registration.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|e:\\github\\elearning\\elearning\\accounts\\registration.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|solutionrelative:accounts\\registration.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|solutionrelative:accounts\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|e:\\github\\elearning\\elearning\\accounts\\registration.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|E:\\Github\\Elearning\\Elearning\\accounts\\registration.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|solutionrelative:accounts\\registration.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -215,8 +215,7 @@
               "RelativeToolTip": "Accounts\\Login.aspx.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAUwAwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T05:35:01.87Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-10T05:35:01.87Z"
             },
             {
               "$type": "Document",
@@ -241,8 +240,7 @@
               "RelativeToolTip": "Accounts\\Registration.aspx.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAAwA4AAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T05:35:15.713Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-10T05:35:15.713Z"
             },
             {
               "$type": "Document",
@@ -254,8 +252,7 @@
               "RelativeToolTip": "Accounts\\Login.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-05-10T03:26:16.262Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-10T03:26:16.262Z"
             },
             {
               "$type": "Document",
