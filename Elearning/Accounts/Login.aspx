@@ -164,5 +164,10 @@
 	<script src="assets/js/script.js"></script>
         </div>
     </form>
+
+
+	<script src="https://accounts.google.com/gsi/client" async defer></script>
+
+
 </body>
 </html>
