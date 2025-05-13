@@ -66,9 +66,13 @@
 </asp:TemplateField>
 
                         <asp:BoundField DataField="CreatedAt" HeaderText="Created At" SortExpression="CreatedAt" />
-                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True"
-                            ButtonType="Button" ControlStyle-CssClass="btn btn-sm btn-outline-primary mx-1" />
+                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True"
+                            ButtonType="Button" ControlStyle-CssClass="btn btn-sm btn-outline-primary mx-1" >
+<ControlStyle CssClass="btn btn-sm btn-outline-primary mx-1"></ControlStyle>
+                        </asp:CommandField>
                     </Columns>
+
+<HeaderStyle CssClass="table-info"></HeaderStyle>
                 </asp:GridView>
             </div>
         </div>

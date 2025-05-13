@@ -67,8 +67,17 @@ namespace Elearning.Admin
                 string q = $"exec insertTopics '{subcourseid}', '{topicname}', '{videoembedcode}', '{videodurationdeconds}'";
                 SqlCommand cmd = new SqlCommand(q, conn);
                 cmd.ExecuteNonQuery();
+                GridView1.DataBind();
                 Response.Write("<script>alert('Data inserted Sucessfully!')</script>");
                 //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Data inserted Successfully!');", true);
+
+               
+                DropDownList1.SelectedIndex = 0;
+                DropDownList2.SelectedIndex = 0;
+                TextBox1.Text = "";
+                TextBox2.Text = "";
+                TextBox3.Text = "";
+
             }
             else
             {
