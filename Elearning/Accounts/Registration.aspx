@@ -59,7 +59,7 @@
 									<div class="vh-100 d-flex flex-column justify-content-between p-4 pb-0">
 										<div class=" mx-auto mb-5 text-center">
 											<%--<img src="assets/img/logo.svg" class="img-fluid" alt="Logo">--%>
-											<h1 class="m-0 text-uppercase text-info"><i class="fa fa-book-reader mr-3"></i>Elearning</h1>
+											<asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Accounts/startingmainpage.aspx"><h1 class="m-0 text-uppercase text-info"><i class="fa fa-book-reader mr-3"></i>Elearning</h1></asp:HyperLink>
 										</div>
 
 

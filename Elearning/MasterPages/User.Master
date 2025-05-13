@@ -150,8 +150,12 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
+                    <div class="content-wrapper">
+
   <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
  </asp:ContentPlaceHolder>
+
+                        </div>
   <!-- /.content-wrapper -->
   
 

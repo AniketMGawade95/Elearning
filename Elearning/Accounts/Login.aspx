@@ -61,7 +61,8 @@
 											<%--<img src="assets/img/logo.svg"
 												class="img-fluid" alt="Logo">--%>
 											<%--<h1 class="text-info">Elearning</h1>--%>
-											<h1 class="m-0 text-uppercase text-info"><i class="fa fa-book-reader mr-3"></i>Elearning</h1>
+											<asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Accounts/startingmainpage.aspx"><h1 class="m-0 text-uppercase text-info"><i class="fa fa-book-reader mr-3"></i>Elearning</h1></asp:HyperLink>
+											
 										</div>
 										<div class="">
 											<div class="text-center mb-3">
