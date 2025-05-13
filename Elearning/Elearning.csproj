@@ -2002,6 +2002,7 @@
     <Content Include="Accounts\css\style.min.css" />
     <Content Include="Accounts\feature.aspx" />
     <Content Include="Accounts\ForgotPassword.aspx" />
+    <Content Include="Accounts\GoogleRegisterHandler.aspx" />
     <Content Include="Accounts\img\about.jpg" />
     <Content Include="Accounts\img\bg-image.jpg" />
     <Content Include="Accounts\img\courses-1.jpg" />
@@ -3766,6 +3767,7 @@
     <Content Include="MasterPages\plugins\toastr\toastr.css" />
     <Content Include="MasterPages\plugins\toastr\toastr.min.css" />
     <Content Include="MasterPages\plugins\toastr\toastr.min.js" />
+    <Content Include="ProfilePics\default.jpg" />
     <Content Include="User\BuyCourses.aspx" />
     <Content Include="User\Cart.aspx" />
     <Content Include="User\CoursesDetails.aspx" />
@@ -3818,6 +3820,13 @@
     </Compile>
     <Compile Include="Accounts\ForgotPassword.aspx.designer.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts\GoogleRegisterHandler.aspx.cs">
+      <DependentUpon>GoogleRegisterHandler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Accounts\GoogleRegisterHandler.aspx.designer.cs">
+      <DependentUpon>GoogleRegisterHandler.aspx</DependentUpon>
     </Compile>
     <Compile Include="Accounts\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
