@@ -69,6 +69,8 @@ namespace Elearning.Accounts
                         smtp.EnableSsl = true;
 
                         smtp.Send(mail2);
+
+
                         Response.Write("<script>alert('Password Send To Your Email')</script>");
                     }
 

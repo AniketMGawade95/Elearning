@@ -89,7 +89,7 @@
                     <asp:HyperLink ID="HyperLink7" runat="server" class="nav-link dropdown-toggle" data-toggle="dropdown" NavigateUrl="~/Accounts/StartingPage.aspx">Pages</asp:HyperLink>
                     <div class="dropdown-menu m-0">
                         
-                        <asp:HyperLink ID="HyperLink8" runat="server" class="dropdown-item" NavigateUrl="~/Accounts/coursedetails.aspx">Course Detail</asp:HyperLink>
+<%--                        <asp:HyperLink ID="HyperLink8" runat="server" class="dropdown-item" NavigateUrl="~/Accounts/coursedetails.aspx">Course Detail</asp:HyperLink>--%>
                         
                         <asp:HyperLink ID="HyperLink9" runat="server" class="dropdown-item" NavigateUrl="~/Accounts/feature.aspx">Our Features</asp:HyperLink>
                         

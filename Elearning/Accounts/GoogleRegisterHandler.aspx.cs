@@ -20,7 +20,7 @@ namespace Elearning.Accounts
             string name = Request.QueryString["name"];
             string email = Request.QueryString["email"];
             string photo = Request.QueryString["picture"];
-            string role = "user"; // Default role
+            string role = "user"; 
             string strongPassword = GenerateStrongPassword();
 
 
@@ -34,7 +34,7 @@ namespace Elearning.Accounts
                 {
                     con.Open();
 
-                    // Check if user already exists
+                   
                     SqlCommand checkCmd = new SqlCommand("SELECT UserID, Name, Email, ProfilePic, Role FROM Users WHERE Email = @Email", con);
                     checkCmd.Parameters.AddWithValue("@Email", email);
 
@@ -42,7 +42,7 @@ namespace Elearning.Accounts
 
                     if (reader.Read())
                     {
-                        // User exists, create session
+                       
                         Session["UserID"] = reader["UserID"];
                         Session["Emailid"] = reader["Email"];
                         Session["FullName"] = reader["Name"];
@@ -52,12 +52,12 @@ namespace Elearning.Accounts
                     }
                     else
                     {
-                        reader.Close(); // Close before INSERT
+                        reader.Close(); 
 
-                        string profilePicPath = DownloadGoogleProfilePic(photo); // ← save locally
+                        string profilePicPath = DownloadGoogleProfilePic(photo); 
 
 
-                        // Insert new user
+                        
                         SqlCommand insertCmd = new SqlCommand(
      "INSERT INTO Users (Name, Email, ProfilePic, Role, Password) OUTPUT INSERTED.UserID " +
      "VALUES (@Name, @Email, @Photo, @Role, @Password)", con);
@@ -82,12 +82,12 @@ namespace Elearning.Accounts
                     con.Close();
                 }
 
-                // Redirect to dashboard
+                
                 Response.Redirect("~/User/userDashboard.aspx");
             }
             else
             {
-                // Something went wrong
+                
                 Response.Redirect("~/Accounts/Registration.aspx?error=missing_email");
             }
         }
@@ -124,7 +124,7 @@ namespace Elearning.Accounts
                     string extension = Path.GetExtension(imageUrl);
                     if (string.IsNullOrEmpty(extension) || extension.Contains("?"))
                     {
-                        extension = ".jpg"; // default to .jpg
+                        extension = ".jpg"; 
                     }
 
                     string uniqueName = Guid.NewGuid().ToString() + extension;
@@ -136,7 +136,7 @@ namespace Elearning.Accounts
             }
             catch (Exception)
             {
-                return "~/ProfilePics/default.jpg"; // fallback if image download fails
+                return "~/ProfilePics/default.jpg"; 
             }
         }
 

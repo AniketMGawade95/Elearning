@@ -129,7 +129,12 @@
 
 
 <!-- Courses Start -->
-<div class="container-fluid px-0 py-5">
+
+
+
+
+
+    <div class="container-fluid px-0 py-5">
     <div class="row mx-0 justify-content-center pt-5">
         <div class="col-lg-6">
             <div class="section-title text-center position-relative mb-4">
@@ -138,135 +143,36 @@
             </div>
         </div>
     </div>
+
     <div class="owl-carousel courses-carousel">
+        <asp:Repeater ID="rptCourses" runat="server" OnItemCommand="rptCourses_ItemCommand">
+    <ItemTemplate>
         <div class="courses-item position-relative">
-            <img class="img-fluid" src="img/courses-1.jpg" alt="">
+            <img class="img-fluid" src='<%# ResolveUrl(Eval("Picture").ToString()) %>' alt="">
             <div class="courses-text">
-                <h4 class="text-center text-white px-3">Web design & development courses for beginners</h4>
+                <h4 class="text-center text-white px-3"><%# Eval("SubCourseName") %></h4>
                 <div class="border-top w-100 mt-3">
                     <div class="d-flex justify-content-between p-4">
-                        <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
-                        <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
+                        <span class="text-white"><i class="fa fa-rupee-sign mr-2"></i><%# Eval("Price") %></span>
+                        <span class="text-white"><i class="fa fa-star mr-2"></i><%# Eval("Rating") != DBNull.Value ? Eval("Rating") : "New" %> <small></small></span>
                     </div>
                 </div>
-                <div class="w-100 bg-white text-center p-4" >
-                    <a class="btn btn-primary" href="detail.html">Course Detail</a>
+                <div class="w-100 bg-white text-center p-4">
+                    <asp:LinkButton ID="lnkView" runat="server" CommandName="View" CommandArgument='<%# Eval("SubCourseID") %>' CssClass="btn btn-primary">Course Detail</asp:LinkButton>
                 </div>
             </div>
         </div>
-        <div class="courses-item position-relative">
-            <img class="img-fluid" src="img/courses-2.jpg" alt="">
-            <div class="courses-text">
-                <h4 class="text-center text-white px-3">Web design & development courses for beginners</h4>
-                <div class="border-top w-100 mt-3">
-                    <div class="d-flex justify-content-between p-4">
-                        <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
-                        <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
-                    </div>
-                </div>
-                <div class="w-100 bg-white text-center p-4" >
-                    <a class="btn btn-primary" href="detail.html">Course Detail</a>
-                </div>
-            </div>
-        </div>
-        <div class="courses-item position-relative">
-            <img class="img-fluid" src="img/courses-3.jpg" alt="">
-            <div class="courses-text">
-                <h4 class="text-center text-white px-3">Web design & development courses for beginners</h4>
-                <div class="border-top w-100 mt-3">
-                    <div class="d-flex justify-content-between p-4">
-                        <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
-                        <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
-                    </div>
-                </div>
-                <div class="w-100 bg-white text-center p-4" >
-                    <a class="btn btn-primary" href="detail.html">Course Detail</a>
-                </div>
-            </div>
-        </div>
-        <div class="courses-item position-relative">
-            <img class="img-fluid" src="img/courses-4.jpg" alt="">
-            <div class="courses-text">
-                <h4 class="text-center text-white px-3">Web design & development courses for beginners</h4>
-                <div class="border-top w-100 mt-3">
-                    <div class="d-flex justify-content-between p-4">
-                        <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
-                        <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
-                    </div>
-                </div>
-                <div class="w-100 bg-white text-center p-4" >
-                    <a class="btn btn-primary" href="detail.html">Course Detail</a>
-                </div>
-            </div>
-        </div>
-        <div class="courses-item position-relative">
-            <img class="img-fluid" src="img/courses-5.jpg" alt="">
-            <div class="courses-text">
-                <h4 class="text-center text-white px-3">Web design & development courses for beginners</h4>
-                <div class="border-top w-100 mt-3">
-                    <div class="d-flex justify-content-between p-4">
-                        <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
-                        <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
-                    </div>
-                </div>
-                <div class="w-100 bg-white text-center p-4" >
-                    <a class="btn btn-primary" href="detail.html">Course Detail</a>
-                </div>
-            </div>
-        </div>
-        <div class="courses-item position-relative">
-            <img class="img-fluid" src="img/courses-6.jpg" alt="">
-            <div class="courses-text">
-                <h4 class="text-center text-white px-3">Web design & development courses for beginners</h4>
-                <div class="border-top w-100 mt-3">
-                    <div class="d-flex justify-content-between p-4">
-                        <span class="text-white"><i class="fa fa-user mr-2"></i>Jhon Doe</span>
-                        <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 <small>(250)</small></span>
-                    </div>
-                </div>
-                <div class="w-100 bg-white text-center p-4" >
-                    <a class="btn btn-primary" href="detail.html">Course Detail</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row justify-content-center bg-image mx-0 mb-5">
-        <div class="col-lg-6 py-5">
-            <div class="bg-white p-5 my-5">
-                <h1 class="text-center mb-4">30% Off For New Students</h1>
-                <div>
-                    <div class="form-row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control bg-light border-0" placeholder="Your Name" style="padding: 30px 20px;">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input type="email" class="form-control bg-light border-0" placeholder="Your Email" style="padding: 30px 20px;">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <select class="custom-select bg-light border-0 px-3" style="height: 60px;">
-                                    <option selected>Select A courses</option>
-                                    <option value="1">courses 1</option>
-                                    <option value="2">courses 1</option>
-                                    <option value="3">courses 1</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <button class="btn btn-primary btn-block" type="submit" style="height: 60px;">Sign Up Now</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </ItemTemplate>
+</asp:Repeater>
+
     </div>
 </div>
+
+
+
+
+
+
 <!-- Courses End -->
 
 
@@ -395,7 +301,7 @@
                         </div>
                         <div class="mt-n1">
                             <h4>Our Location</h4>
-                            <p class="m-0">123 Street, New York, USA</p>
+                            <p class="m-0">Thane, India</p>
                         </div>
                     </div>
                     <div class="d-flex align-items-center mb-5">
@@ -418,7 +324,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-7">
+
+
+
+
+            <%--<div class="col-lg-7">
                 <div class="section-title position-relative mb-4">
                     <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Need Help?</h6>
                     <h1 class="display-4">Send Us A Message</h1>
@@ -444,7 +354,43 @@
                         </div>
                     </div>
                 </div>
+            </div>--%>
+
+            <div class="col-lg-7">
+    <div class="section-title position-relative mb-4">
+        <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Need Help?</h6>
+        <h1 class="display-4">Send Us A Message</h1>
+    </div>
+    <div class="contact-form">
+        <asp:Literal ID="litMessage" runat="server" EnableViewState="false" />
+        <asp:Panel ID="pnlForm" runat="server">
+            <div class="row">
+                <div class="col-6 form-group">
+                    <asp:TextBox ID="txtName" runat="server" CssClass="form-control border-top-0 border-right-0 border-left-0 p-0" 
+                        Placeholder="Your Name" required="required" />
+                </div>
+                <div class="col-6 form-group">
+                    <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control border-top-0 border-right-0 border-left-0 p-0" 
+                        Placeholder="Your Email" TextMode="Email" required="required" />
+                </div>
             </div>
+            <div class="form-group">
+                <asp:TextBox ID="txtSubject" runat="server" CssClass="form-control border-top-0 border-right-0 border-left-0 p-0" 
+                    Placeholder="Subject" required="required" />
+            </div>
+            <div class="form-group">
+                <asp:TextBox ID="txtMessage" runat="server" CssClass="form-control border-top-0 border-right-0 border-left-0 p-0"
+                    Rows="5" TextMode="MultiLine" Placeholder="Message" required="required" />
+            </div>
+            <div>
+                <asp:Button ID="btnSend" runat="server" Text="Send Message" CssClass="btn btn-primary py-3 px-5" OnClick="btnSend_Click" />
+            </div>
+        </asp:Panel>
+    </div>
+</div>
+
+
+
         </div>
     </div>
 </div>
