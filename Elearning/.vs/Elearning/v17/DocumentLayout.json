@@ -3,15 +3,23 @@
   "WorkspaceRootPath": "E:\\Github\\Elearning\\Elearning\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|E:\\Github\\Elearning\\Elearning\\masterpages\\admin.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "AbsoluteMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|e:\\github\\elearning\\elearning\\masterpages\\admin.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
       "RelativeMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|solutionrelative:masterpages\\admin.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|E:\\Github\\Elearning\\Elearning\\user\\userdashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|solutionrelative:user\\userdashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|E:\\Github\\Elearning\\Elearning\\masterpages\\user.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
       "RelativeMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|solutionrelative:masterpages\\user.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|e:\\github\\elearning\\elearning\\accounts\\startingmainpage.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|E:\\Github\\Elearning\\Elearning\\masterpages\\admin.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|solutionrelative:masterpages\\admin.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|E:\\Github\\Elearning\\Elearning\\accounts\\startingmainpage.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|solutionrelative:accounts\\startingmainpage.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -31,7 +39,7 @@
       "RelativeMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|solutionrelative:accounts\\coursedetails.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|e:\\github\\elearning\\elearning\\accounts\\coursedetails.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|E:\\Github\\Elearning\\Elearning\\accounts\\coursedetails.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|solutionrelative:accounts\\coursedetails.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -55,7 +63,7 @@
       "RelativeMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|solutionrelative:masterpages\\watchcource.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|e:\\github\\elearning\\elearning\\accounts\\googleregisterhandler.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|E:\\Github\\Elearning\\Elearning\\accounts\\googleregisterhandler.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|solutionrelative:accounts\\googleregisterhandler.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -119,10 +127,6 @@
       "RelativeMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|solutionrelative:user\\coursesdetails.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|E:\\Github\\Elearning\\Elearning\\masterpages\\admin.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|solutionrelative:masterpages\\admin.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|E:\\Github\\Elearning\\Elearning\\accounts\\forgotpassword.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|solutionrelative:accounts\\forgotpassword.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
@@ -155,10 +159,6 @@
       "RelativeMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|solutionrelative:user\\userchat.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|E:\\Github\\Elearning\\Elearning\\user\\userdashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|solutionrelative:user\\userdashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|E:\\Github\\Elearning\\Elearning\\admin\\adminchat.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{7E10815F-5AE7-4EE4-810C-A1A6B67A9BF8}|Elearning.csproj|solutionrelative:admin\\adminchat.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
@@ -186,7 +186,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 285,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -198,33 +198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "startingmainpage.aspx.cs",
-              "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Accounts\\startingmainpage.aspx.cs",
-              "RelativeDocumentMoniker": "Accounts\\startingmainpage.aspx.cs",
-              "ToolTip": "E:\\Github\\Elearning\\Elearning\\Accounts\\startingmainpage.aspx.cs",
-              "RelativeToolTip": "Accounts\\startingmainpage.aspx.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABcAAABqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T15:58:45.341Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "startingmainpage.aspx",
-              "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Accounts\\startingmainpage.aspx",
-              "RelativeDocumentMoniker": "Accounts\\startingmainpage.aspx",
-              "ToolTip": "E:\\Github\\Elearning\\Elearning\\Accounts\\startingmainpage.aspx",
-              "RelativeToolTip": "Accounts\\startingmainpage.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-05-10T07:59:32.934Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "StartingPage.Master",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\MasterPages\\StartingPage.Master",
               "RelativeDocumentMoniker": "MasterPages\\StartingPage.Master",
@@ -237,7 +211,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "ForgotPassword.aspx.cs",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Accounts\\ForgotPassword.aspx.cs",
               "RelativeDocumentMoniker": "Accounts\\ForgotPassword.aspx.cs",
@@ -263,7 +237,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "User.Master",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\MasterPages\\User.Master",
               "RelativeDocumentMoniker": "MasterPages\\User.Master",
@@ -276,7 +250,59 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
+              "Title": "Admin.Master.cs",
+              "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\MasterPages\\Admin.Master.cs",
+              "RelativeDocumentMoniker": "MasterPages\\Admin.Master.cs",
+              "ToolTip": "E:\\Github\\Elearning\\Elearning\\MasterPages\\Admin.Master.cs",
+              "RelativeToolTip": "MasterPages\\Admin.Master.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T11:16:16.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "userDashboard.aspx",
+              "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\User\\userDashboard.aspx",
+              "RelativeDocumentMoniker": "User\\userDashboard.aspx",
+              "ToolTip": "E:\\Github\\Elearning\\Elearning\\User\\userDashboard.aspx",
+              "RelativeToolTip": "User\\userDashboard.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-05-10T09:01:42.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "startingmainpage.aspx",
+              "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Accounts\\startingmainpage.aspx",
+              "RelativeDocumentMoniker": "Accounts\\startingmainpage.aspx",
+              "ToolTip": "E:\\Github\\Elearning\\Elearning\\Accounts\\startingmainpage.aspx",
+              "RelativeToolTip": "Accounts\\startingmainpage.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-05-10T07:59:32.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "startingmainpage.aspx.cs",
+              "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Accounts\\startingmainpage.aspx.cs",
+              "RelativeDocumentMoniker": "Accounts\\startingmainpage.aspx.cs",
+              "ToolTip": "E:\\Github\\Elearning\\Elearning\\Accounts\\startingmainpage.aspx.cs",
+              "RelativeToolTip": "Accounts\\startingmainpage.aspx.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABcAAABqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T15:58:45.341Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "coursedetails.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Accounts\\coursedetails.aspx",
               "RelativeDocumentMoniker": "Accounts\\coursedetails.aspx",
@@ -289,7 +315,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "coursedetails.aspx.cs",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Accounts\\coursedetails.aspx.cs",
               "RelativeDocumentMoniker": "Accounts\\coursedetails.aspx.cs",
@@ -302,7 +328,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "course.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Accounts\\course.aspx",
               "RelativeDocumentMoniker": "Accounts\\course.aspx",
@@ -315,7 +341,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Registration.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Accounts\\Registration.aspx",
               "RelativeDocumentMoniker": "Accounts\\Registration.aspx",
@@ -328,7 +354,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "AddTopic.aspx.cs",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Admin\\AddTopic.aspx.cs",
               "RelativeDocumentMoniker": "Admin\\AddTopic.aspx.cs",
@@ -341,7 +367,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "AddTopic.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Admin\\AddTopic.aspx",
               "RelativeDocumentMoniker": "Admin\\AddTopic.aspx",
@@ -354,7 +380,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "WatchCource.Master",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\MasterPages\\WatchCource.Master",
               "RelativeDocumentMoniker": "MasterPages\\WatchCource.Master",
@@ -367,7 +393,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "GoogleRegisterHandler.aspx.cs",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Accounts\\GoogleRegisterHandler.aspx.cs",
               "RelativeDocumentMoniker": "Accounts\\GoogleRegisterHandler.aspx.cs",
@@ -380,7 +406,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "Login.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Accounts\\Login.aspx",
               "RelativeDocumentMoniker": "Accounts\\Login.aspx",
@@ -393,7 +419,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "Login.aspx.cs",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Accounts\\Login.aspx.cs",
               "RelativeDocumentMoniker": "Accounts\\Login.aspx.cs",
@@ -406,7 +432,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "Registration.aspx.cs",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Accounts\\Registration.aspx.cs",
               "RelativeDocumentMoniker": "Accounts\\Registration.aspx.cs",
@@ -419,7 +445,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "GoogleRegisterHandler.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Accounts\\GoogleRegisterHandler.aspx",
               "RelativeDocumentMoniker": "Accounts\\GoogleRegisterHandler.aspx",
@@ -432,7 +458,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "AddMasterCourse.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Admin\\AddMasterCourse.aspx",
               "RelativeDocumentMoniker": "Admin\\AddMasterCourse.aspx",
@@ -445,7 +471,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "AddMasterCourse.aspx.cs",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Admin\\AddMasterCourse.aspx.cs",
               "RelativeDocumentMoniker": "Admin\\AddMasterCourse.aspx.cs",
@@ -458,7 +484,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "AddSubCourse.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Admin\\AddSubCourse.aspx",
               "RelativeDocumentMoniker": "Admin\\AddSubCourse.aspx",
@@ -471,7 +497,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "AddAssignment.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Admin\\AddAssignment.aspx",
               "RelativeDocumentMoniker": "Admin\\AddAssignment.aspx",
@@ -484,7 +510,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "AddSubCourse.aspx.cs",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Admin\\AddSubCourse.aspx.cs",
               "RelativeDocumentMoniker": "Admin\\AddSubCourse.aspx.cs",
@@ -497,7 +523,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "Web.config",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Web.config",
               "RelativeDocumentMoniker": "Web.config",
@@ -510,7 +536,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "LearningPage.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\User\\LearningPage.aspx",
               "RelativeDocumentMoniker": "User\\LearningPage.aspx",
@@ -523,7 +549,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "mycourses.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\User\\mycourses.aspx",
               "RelativeDocumentMoniker": "User\\mycourses.aspx",
@@ -536,7 +562,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "User.Master.cs",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\MasterPages\\User.Master.cs",
               "RelativeDocumentMoniker": "MasterPages\\User.Master.cs",
@@ -549,7 +575,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "BuyCourses.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\User\\BuyCourses.aspx",
               "RelativeDocumentMoniker": "User\\BuyCourses.aspx",
@@ -562,7 +588,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "CoursesDetails.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\User\\CoursesDetails.aspx",
               "RelativeDocumentMoniker": "User\\CoursesDetails.aspx",
@@ -575,20 +601,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "Admin.Master.cs",
-              "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\MasterPages\\Admin.Master.cs",
-              "RelativeDocumentMoniker": "MasterPages\\Admin.Master.cs",
-              "ToolTip": "E:\\Github\\Elearning\\Elearning\\MasterPages\\Admin.Master.cs",
-              "RelativeToolTip": "MasterPages\\Admin.Master.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T11:16:16.621Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "ForgotPassword.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Accounts\\ForgotPassword.aspx",
               "RelativeDocumentMoniker": "Accounts\\ForgotPassword.aspx",
@@ -601,7 +614,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "Membership.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Admin\\Membership.aspx",
               "RelativeDocumentMoniker": "Admin\\Membership.aspx",
@@ -614,7 +627,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "Allcourseslist.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Admin\\Allcourseslist.aspx",
               "RelativeDocumentMoniker": "Admin\\Allcourseslist.aspx",
@@ -627,7 +640,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "membership.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\User\\membership.aspx",
               "RelativeDocumentMoniker": "User\\membership.aspx",
@@ -640,7 +653,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "Cart.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\User\\Cart.aspx",
               "RelativeDocumentMoniker": "User\\Cart.aspx",
@@ -653,7 +666,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "Materials.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Admin\\Materials.aspx",
               "RelativeDocumentMoniker": "Admin\\Materials.aspx",
@@ -666,7 +679,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "UserChat.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\User\\UserChat.aspx",
               "RelativeDocumentMoniker": "User\\UserChat.aspx",
@@ -675,19 +688,6 @@
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
               "WhenOpened": "2025-05-10T09:02:05.35Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "userDashboard.aspx",
-              "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\User\\userDashboard.aspx",
-              "RelativeDocumentMoniker": "User\\userDashboard.aspx",
-              "ToolTip": "E:\\Github\\Elearning\\Elearning\\User\\userDashboard.aspx",
-              "RelativeToolTip": "User\\userDashboard.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-05-10T09:01:42.349Z",
               "EditorCaption": ""
             },
             {
@@ -705,7 +705,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "dashboard.aspx",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\Admin\\dashboard.aspx",
               "RelativeDocumentMoniker": "Admin\\dashboard.aspx",
