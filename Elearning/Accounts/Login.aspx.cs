@@ -18,7 +18,7 @@ namespace Elearning.Accounts
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ConnectionString);
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Elearning"].ConnectionString);
             conn.Open();
 
             string email = txtEmail.Text;

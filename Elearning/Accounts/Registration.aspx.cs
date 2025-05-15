@@ -24,7 +24,7 @@ namespace Elearning.Accounts
             string email = txtEmail.Text.Trim();
             string password = txtPassword.Text.Trim();
             string confirmPassword = txtConfirmPassword.Text.Trim();
-            string role = "user";
+            string role = "User";
             string profilePicFileName = null;
 
             // Server-side input validation
@@ -59,7 +59,7 @@ namespace Elearning.Accounts
 
             try
             {
-                string cs = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
+                string cs = ConfigurationManager.ConnectionStrings["Elearning"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(cs))
                 {
                     con.Open();

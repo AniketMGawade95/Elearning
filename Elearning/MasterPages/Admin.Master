@@ -5,186 +5,187 @@
 <html>
 <head runat="server">
     <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Elearning</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Tempusdominus Bbootstrap 4 -->
-  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- JQVMap -->
-  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
-  <!-- summernote -->
-  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Elearning</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-             
 
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <h3 class="m-0 text-uppercase text-info"><i class="fa fa-book-reader mr-3"></i>Elearning</h3>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-  <div class="image">
-    
-      <asp:Image ID="Image1" class="img-circle elevation-2" runat="server" />
-  </div>
-  <div class="info">
-    <a href="#" class="d-block">
-        <asp:Label ID="Label1" runat="server" Text=""></asp:Label></a>
-  </div>
-</div>
+            <!-- Main Sidebar Container -->
+            <aside class="main-sidebar sidebar-dark-primary">
+                <!-- Brand Logo -->
+                <h3 class="m-0 text-uppercase text-info"><i class="fa fa-book-reader mr-3"></i>Elearning</h3>
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
+                <!-- Sidebar -->
+                <div class="sidebar flex">
+                    <!-- Sidebar user panel (optional) -->
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        <div class="image">
+
+                            <asp:Image ID="Image1" class="img-circle elevation-2" runat="server" />
+                        </div>
+                        <div class="info">
+                            <a href="#" class="d-block">
+                                <asp:Label ID="Label1" runat="server" Text=""></asp:Label></a>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar Menu -->
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
-            
+                            <li class="nav-item has-treeview menu-open">
 
-                              <asp:HyperLink ID="HyperLink1" runat="server" class="nav-link active" NavigateUrl="~/Admin/dashboard.aspx"><i class="nav-icon fas fa-tachometer-alt"></i>
+
+                                <asp:HyperLink ID="HyperLink1" runat="server" class="nav-link active" NavigateUrl="~/Admin/dashboard.aspx"><i class="nav-icon fas fa-tachometer-alt"></i>
 <p>
   Dashboard
   <i class="right fas fa-angle-left"></i>
 </p></asp:HyperLink>
 
 
-            
-          </li>
 
-            <li class="nav-item">
- 
-                <asp:HyperLink ID="HyperLink2" runat="server" class="nav-link" NavigateUrl="~/Admin/AddMasterCourse.aspx">   <i class="nav-icon far fa-plus-square"></i>
+                            </li>
+
+                            <li class="nav-item">
+
+                                <asp:HyperLink ID="HyperLink2" runat="server" class="nav-link" NavigateUrl="~/Admin/AddMasterCourse.aspx">   <i class="nav-icon far fa-plus-square"></i>
 <p>Add Master Course</p></asp:HyperLink>
 
-</li>
-            <li class="nav-item">
-  
+                            </li>
+                            <li class="nav-item">
+
                                 <asp:HyperLink ID="HyperLink3" runat="server" class="nav-link" NavigateUrl="~/Admin/AddSubCourse.aspx">   <i class="nav-icon far fa-plus-square"></i>
 <p>Add Sub Course</p></asp:HyperLink>
 
-</li>
-            <li class="nav-item">
-  
-                <asp:HyperLink ID="HyperLink4" class="nav-link" runat="server" NavigateUrl="~/Admin/AddTopic.aspx"><i class="nav-icon far fa-plus-square"></i>
+                            </li>
+                            <li class="nav-item">
+
+                                <asp:HyperLink ID="HyperLink4" class="nav-link" runat="server" NavigateUrl="~/Admin/AddTopic.aspx"><i class="nav-icon far fa-plus-square"></i>
 <p>Add Topic</p></asp:HyperLink>
 
 
-</li>
-            <li class="nav-item">
-  
-                <asp:HyperLink ID="HyperLink5" class="nav-link" runat="server" NavigateUrl="~/Admin/Materials.aspx"><i class="nav-icon fas fa-file"></i>
+                            </li>
+                            <li class="nav-item">
+
+                                <asp:HyperLink ID="HyperLink5" class="nav-link" runat="server" NavigateUrl="~/Admin/Materials.aspx"><i class="nav-icon fas fa-file"></i>
 <p>Materials</p></asp:HyperLink>
 
-</li>
-            <li class="nav-item">
-  
+                            </li>
+                            <li class="nav-item">
 
-                <asp:HyperLink ID="HyperLink6" class="nav-link" runat="server" NavigateUrl="~/Admin/Allcourseslist.aspx"><i class="nav-icon fas fa-copy"></i>
+
+                                <asp:HyperLink ID="HyperLink6" class="nav-link" runat="server" NavigateUrl="~/Admin/Allcourseslist.aspx"><i class="nav-icon fas fa-copy"></i>
 <p>All Course List</p></asp:HyperLink>
 
-</li>
+                            </li>
 
-            <li class="nav-item">
-  
+                            <li class="nav-item">
 
-                <asp:HyperLink ID="HyperLink7" class="nav-link" runat="server" NavigateUrl="~/Admin/Membership.aspx">  <i class="nav-icon fas fa-book"></i>
+
+                                <asp:HyperLink ID="HyperLink7" class="nav-link" runat="server" NavigateUrl="~/Admin/Membership.aspx">  <i class="nav-icon fas fa-book"></i>
 <p>Add Membership</p></asp:HyperLink>
 
-</li>
-            <li class="nav-item">
-  
+                            </li>
+                            <li class="nav-item">
 
-                <asp:HyperLink ID="HyperLink8" class="nav-link" runat="server" NavigateUrl="~/Admin/AdminChat.aspx"><i class="nav-icon fas fa-edit"></i>
+
+                                <asp:HyperLink ID="HyperLink8" class="nav-link" runat="server" NavigateUrl="~/Admin/AdminChat.aspx"><i class="nav-icon fas fa-edit"></i>
  <p>Admin chat</p></asp:HyperLink>
 
 
-</li>
-                        <li class="nav-item">
-				
+                            </li>
+                            <li class="nav-item">
 
-				<asp:Button ID="Button1" runat="server" CssClass="btn btn-info mt-3" Text="Logout" OnClick="Button1_Click" />
-</li>
-           
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
 
-  <!-- Content Wrapper. Contains page content -->
-  <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
- </asp:ContentPlaceHolder>
-  <!-- /.content-wrapper -->
-  
+                                <asp:Button ID="Button1" runat="server" CssClass="btn btn-info mt-3" Text="Logout" OnClick="Button1_Click" />
+                            </li>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
+                        </ul>
+                    </nav>
+                    <!-- /.sidebar-menu -->
+                </div>
+                <!-- /.sidebar -->
+            </aside>
 
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
-<script src="plugins/moment/moment.min.js"></script>
-<script src="plugins/daterangepicker/daterangepicker.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Summernote -->
-<script src="plugins/summernote/summernote-bs4.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
-           
-        
+            <!-- Content Wrapper. Contains page content -->
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <!-- /.content-wrapper -->
+
+
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery -->
+        <script src="plugins/jquery/jquery.min.js"></script>
+        <!-- jQuery UI 1.11.4 -->
+        <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+        <script>
+            $.widget.bridge('uibutton', $.ui.button)
+        </script>
+        <!-- Bootstrap 4 -->
+        <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- ChartJS -->
+        <script src="plugins/chart.js/Chart.min.js"></script>
+        <!-- Sparkline -->
+        <script src="plugins/sparklines/sparkline.js"></script>
+        <!-- JQVMap -->
+        <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+        <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+        <!-- jQuery Knob Chart -->
+        <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+        <!-- daterangepicker -->
+        <script src="plugins/moment/moment.min.js"></script>
+        <script src="plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- Tempusdominus Bootstrap 4 -->
+        <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+        <!-- Summernote -->
+        <script src="plugins/summernote/summernote-bs4.min.js"></script>
+        <!-- overlayScrollbars -->
+        <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="dist/js/adminlte.js"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="dist/js/pages/dashboard.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="dist/js/demo.js"></script>
+
+
         </div>
     </form>
 </body>

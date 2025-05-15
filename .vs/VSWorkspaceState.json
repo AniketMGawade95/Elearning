@@ -3,8 +3,9 @@
     "",
     "\\Elearning",
     "\\Elearning\\Accounts",
+    "\\Elearning\\Admin",
     "\\Elearning\\MasterPages"
   ],
-  "SelectedNode": "\\Elearning\\Accounts\\Registration.aspx.cs",
+  "SelectedNode": "\\Elearning\\Admin\\dashboard.aspx.cs",
   "PreviewInSolutionExplorer": false
 }

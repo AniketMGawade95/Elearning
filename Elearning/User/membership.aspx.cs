@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Elearning.User
 {
@@ -11,7 +9,25 @@ namespace Elearning.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                LoadPlans();
+            }
+        }
 
+        private void LoadPlans()
+        {
+            string cs = ConfigurationManager.ConnectionStrings["Elearning"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
+            SqlCommand cmd = new SqlCommand("sp_GetAllSubscriptionPlans", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            rptPlans.DataSource = dt;
+            rptPlans.DataBind();
         }
     }
 }
