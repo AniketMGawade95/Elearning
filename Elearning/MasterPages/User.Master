@@ -29,11 +29,81 @@
 <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
 <!-- Google Font: Source Sans Pro -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+
+
+            <script>
+                function toggleSidebar() {
+                    const sidebar = document.querySelector('.main-sidebar');
+                    const content = document.querySelector('.content-wrapper');
+
+                    sidebar.classList.toggle('active');
+                    content.classList.toggle('shifted');
+                }
+            </script>
+
+
+
+    <style>
+    .main-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        overflow-y: auto;
+        z-index: 1030;
+        width: 250px;
+        transition: transform 0.3s ease;
+    }
+
+    .content-wrapper {
+        margin-left: 250px;
+        padding: 20px;
+        transition: margin-left 0.3s ease;
+    }
+
+    /* Mobile: Hide sidebar and slide in/out */
+    @media (max-width: 768px) {
+        .main-sidebar {
+            transform: translateX(-100%);
+        }
+
+        .main-sidebar.active {
+            transform: translateX(0);
+        }
+
+        .content-wrapper {
+            margin-left: 0;
+        }
+
+        .content-wrapper.shifted {
+            margin-left: 250px;
+        }
+
+        .sidebar-toggle-btn {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 2000;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+    }
+</style>
+
+
+
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body class="hold-transition sidebar-mini layout-fixed">
     <form id="form1" runat="server">
+        <div class="wrapper">
+            <button type="button" class="sidebar-toggle-btn" onclick="toggleSidebar()">☰</button>
                 <div>
              
 
@@ -87,7 +157,6 @@
 </li>
 
 
-                      </li>
 
                         <li class="nav-item">
   
@@ -150,8 +219,12 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
+                    <div class="content-wrapper">
+
   <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
  </asp:ContentPlaceHolder>
+
+                        </div>
   <!-- /.content-wrapper -->
   
 

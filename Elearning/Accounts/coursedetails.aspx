@@ -42,9 +42,11 @@
                     <div class="mb-5">
                         <div class="section-title position-relative mb-5">
                             <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Course Detail</h6>
-                            <h1 class="display-4">Web design & development courses for beginners</h1>
+                            <h1 class="display-4">
+                                <asp:Label ID="lblCourseName" runat="server" Text=""></asp:Label></h1>
                         </div>
-                        <img class="img-fluid rounded w-100 mb-4" src="img/header.jpg" alt="Image">
+                        <%--<img class="img-fluid rounded w-100 mb-4" src="img/header.jpg" alt="Image">--%>
+                        <asp:Image class="img-fluid rounded w-100 mb-4" ID="imgCourse" runat="server" alt="Image" />
                         <p>Tempor erat elitr at rebum at at clita aliquyam consetetur. Diam dolor diam ipsum et, tempor voluptua sit consetetur sit. Aliquyam diam amet diam et eos sadipscing labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor consetetur takimata eirmod, dolores takimata consetetur invidunt magna dolores aliquyam dolores dolore. Amet erat amet et magna</p>
                         
                         <p>Sadipscing labore amet rebum est et justo gubergren. Et eirmod ipsum sit diam ut magna lorem.
@@ -54,8 +56,14 @@
                             sea no sed dolores diam nonumy, gubergren sit stet no diam kasd vero.</p>
                     </div>
 
+
+
+
+
+
+
                     <h2 class="mb-3">Related Courses</h2>
-                    <div class="owl-carousel related-carousel position-relative" style="padding: 0 30px;">
+                    <%--<div class="owl-carousel related-carousel position-relative" style="padding: 0 30px;">
                         <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="detail.html">
                             <img class="img-fluid" src="img/courses-1.jpg" alt="">
                             <div class="courses-text">
@@ -98,27 +106,69 @@
                                 </div>
                             </div>
                         </a>
+                    </div>--%>
+
+
+
+                    <div class="owl-carousel related-carousel position-relative" style="padding: 0 30px;">
+    <asp:Repeater ID="rptCourses" runat="server">
+        <ItemTemplate>
+            <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href='coursedetails.aspx?id=<%# Eval("SubCourseID") %>'>
+                <img class="img-fluid" src='<%# Eval("Picture").ToString().Replace("~", "") %>' alt="">
+                <div class="courses-text">
+                    <h4 class="text-center text-white px-3"><%# Eval("SubCourseName") %></h4>
+                    <div class="border-top w-100 mt-3">
+                        <div class="d-flex justify-content-between p-4">
+                            <span class="text-white">
+                                <i class="fa fa-user mr-2"></i>
+                               <%-- <%# Eval("InstructorName") %>--%>
+                            </span>
+                            <span class="text-white">
+                                <i class="fa fa-star mr-2"></i>
+                                <%# Eval("Rating") %>
+                                <small></small>
+                            </span>
+                        </div>
                     </div>
+                </div>
+            </a>
+        </ItemTemplate>
+    </asp:Repeater>
+</div>
+
+
+
+
+
+
+
+
+
+
+
                </div>
 
                 <div class="col-lg-4 mt-5 mt-lg-0">
                     <div class="bg-primary mb-5 py-3">
                         <h3 class="text-white py-3 px-4 m-0">Course Features</h3>
-                        <div class="d-flex justify-content-between border-bottom px-4">
+                        <%--<div class="d-flex justify-content-between border-bottom px-4">
                             <h6 class="text-white my-3">Instructor</h6>
                             <h6 class="text-white my-3">John Doe</h6>
-                        </div>
+                        </div>--%>
                         <div class="d-flex justify-content-between border-bottom px-4">
                             <h6 class="text-white my-3">Rating</h6>
-                            <h6 class="text-white my-3">4.5 <small>(250)</small></h6>
+                            <h6 class="text-white my-3"><small>
+                                <asp:Label ID="lblRating" runat="server" Text=""></asp:Label></small></h6>
                         </div>
                         <div class="d-flex justify-content-between border-bottom px-4">
                             <h6 class="text-white my-3">Lectures</h6>
-                            <h6 class="text-white my-3">15</h6>
+                            <h6 class="text-white my-3">
+                                <asp:Label ID="lbltotaltopics" runat="server" Text=""></asp:Label></h6>
                         </div>
                         <div class="d-flex justify-content-between border-bottom px-4">
                             <h6 class="text-white my-3">Duration</h6>
-                            <h6 class="text-white my-3">10.00 Hrs</h6>
+                            <h6 class="text-white my-3">
+                                <asp:Label ID="lbltotalhoursofalltopics" runat="server" Text=""></asp:Label> Hrs</h6>
                         </div>
                         <div class="d-flex justify-content-between border-bottom px-4">
                             <h6 class="text-white my-3">Skill level</h6>
@@ -128,9 +178,10 @@
                             <h6 class="text-white my-3">Language</h6>
                             <h6 class="text-white my-3">English</h6>
                         </div>
-                        <h5 class="text-white py-3 px-4 m-0">Course Price: $199</h5>
+                        <h5 class="text-white py-3 px-4 m-0">Course Price:<asp:Label ID="lblPrice" runat="server" Text=""></asp:Label> </h5>
                         <div class="py-3 px-4">
-                            <a class="btn btn-block btn-secondary py-3 px-5" href="">Enroll Now</a>
+                            <%--<a class="btn btn-block btn-secondary py-3 px-5" href="">Enroll Now</a>--%>
+                            <asp:HyperLink class="btn btn-block btn-secondary py-3 px-5" ID="HyperLink1" runat="server" NavigateUrl="~/Accounts/Login.aspx">Enroll Now</asp:HyperLink>
                         </div>
                     </div>
 
@@ -160,7 +211,14 @@
                         </ul>
                     </div>
 
-                    <div class="mb-5">
+
+
+
+
+
+
+
+                    <%--<div class="mb-5">
                         <h2 class="mb-4">Recent Courses</h2>
                         <a class="d-flex align-items-center text-decoration-none mb-4" href="">
                             <img class="img-fluid rounded" src="img/courses-80x80.jpg" alt="">
@@ -202,7 +260,38 @@
                                 </div>
                             </div>
                         </a>
+                    </div>--%>
+
+                    <div class="mb-5">
+    <h2 class="mb-4">Recent Courses</h2>
+    <asp:DataList ID="dlRecentCourses" runat="server" RepeatDirection="Vertical">
+        <ItemTemplate>
+            <a class="d-flex align-items-center text-decoration-none mb-4"
+               href='coursedetails.aspx?id=<%# Eval("SubCourseID") %>'>
+                <img class="img-fluid rounded" style="width: 80px; height: 80px;" 
+                     src='<%# Eval("Picture").ToString().Replace("~", "") %>' alt="">
+                <div class="pl-3">
+                    <h6><%# Eval("SubCourseName") %></h6>
+                    <div class="d-flex">
+                        <small class="text-body mr-3">
+                            <i class="fa fa-user text-primary mr-2"></i>
+                          <%--  <%# Eval("InstructorName") ?? "Instructor" %>--%>
+                        </small>
+                        <small class="text-body">
+                            <i class="fa fa-star text-primary mr-2"></i>
+                            <%# Eval("Rating") %> (250)
+                        </small>
                     </div>
+                </div>
+            </a>
+        </ItemTemplate>
+    </asp:DataList>
+</div>
+
+
+
+
+
                 </div>
             </div>
         </div>
