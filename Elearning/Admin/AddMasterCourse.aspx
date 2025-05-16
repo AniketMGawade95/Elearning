@@ -47,23 +47,30 @@
                     CssClass="table table-bordered table-hover table-striped"
                     HeaderStyle-CssClass="table-info"
                     AllowPaging="True"
+                    PageSize="5"
                     AllowSorting="True"
                     AutoGenerateColumns="False"
                     DataKeyNames="MasterCourseID"
                     DataSourceID="SqlDataSource1"
-                    PageSize="5">
+                    PageSize="5"
+                    OnRowUpdating="GridView1_RowUpdating">
+                     <PagerStyle CssClass="pagination" HorizontalAlign="Center" />
                     <Columns>
                         <asp:BoundField DataField="MasterCourseID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="MasterCourseID" />
                         <asp:BoundField DataField="CourseName" HeaderText="Course Name" SortExpression="CourseName" />
                         <asp:BoundField DataField="Picture" HeaderText="Picture" SortExpression="Picture" />
+                        
+                        
                         <asp:TemplateField HeaderText="Picture">
     <ItemTemplate>
-        
-    <asp:Image ID="imgCourse" runat="server" ImageUrl='<%# Eval("Picture") %>' Width="60px" Height="60px" />
-
-
+        <asp:Image ID="imgCourse" runat="server" ImageUrl='<%# Eval("Picture") %>' Width="60px" Height="60px" />
     </ItemTemplate>
+    <EditItemTemplate>
+        <asp:FileUpload ID="FileUploadEdit" runat="server" CssClass="form-control" />
+        <asp:HiddenField ID="HiddenPicture" runat="server" Value='<%# Eval("Picture") %>' />
+    </EditItemTemplate>
 </asp:TemplateField>
+
 
                         <asp:BoundField DataField="CreatedAt" HeaderText="Created At" SortExpression="CreatedAt" />
                         <asp:CommandField ShowDeleteButton="True" ShowEditButton="True"

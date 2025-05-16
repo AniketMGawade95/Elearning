@@ -105,5 +105,54 @@ namespace Elearning.Admin
 
             DropDownList1.Items.Insert(0, new ListItem("-- Select Master Course --", "0"));
         }
+
+
+
+
+        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            GridViewRow row = GridView1.Rows[e.RowIndex];
+
+            FileUpload fileUpload = (FileUpload)row.FindControl("FileUploadEdit");
+            HiddenField hiddenOldImage = (HiddenField)row.FindControl("HiddenOldImage");
+
+            string newImagePath = hiddenOldImage.Value; // default to old one
+
+            if (fileUpload != null && fileUpload.HasFile)
+            {
+                string extension = Path.GetExtension(fileUpload.FileName).ToLower();
+                string[] allowedExtensions = { ".jpg", ".jpeg", ".png", ".gif" };
+
+                if (!allowedExtensions.Contains(extension))
+                {
+                    Response.Write("<script>alert('Only image files (.jpg, .png, .gif) are allowed.');</script>");
+                    e.Cancel = true;
+                    return;
+                }
+
+                string folderPath = Server.MapPath("~/images/");
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                string fileName = Path.GetFileName(fileUpload.FileName);
+                string fullPath = Path.Combine(folderPath, fileName);
+                fileUpload.SaveAs(fullPath);
+                newImagePath = "~/images/" + fileName;
+            }
+
+            e.NewValues["Picture"] = newImagePath;
+        }
+
+
+
+
+
+
+
+
+
+
     }
 }

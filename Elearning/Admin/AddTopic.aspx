@@ -1,5 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Admin.Master" AutoEventWireup="true" CodeBehind="AddTopic.aspx.cs" Inherits="Elearning.Admin.AddTopic" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Admin.Master" AutoEventWireup="true" CodeBehind="AddTopic.aspx.cs" Inherits="Elearning.Admin.AddTopic" ValidateRequest="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -41,14 +42,19 @@
         </div>
         <div class="card-body table-responsive">
             <asp:GridView ID="GridView1" runat="server" CssClass="table table-bordered table-hover table-striped"
-                AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False"
+                AllowPaging="True" PageSize="5" AllowSorting="True" AutoGenerateColumns="False"
                 DataKeyNames="TopicID" DataSourceID="SqlDataSource1">
+               <PagerStyle CssClass="pagination" HorizontalAlign="Center" />
+
                 <Columns>
                     
                     <asp:BoundField DataField="TopicID" HeaderText="Topic ID" InsertVisible="False" ReadOnly="True" />
                     <asp:BoundField DataField="SubCourseID" HeaderText="Sub Course ID" />
                     <asp:BoundField DataField="TopicName" HeaderText="Topic Name" />
                     <asp:BoundField DataField="VideoEmbedCode" HeaderText="Video Embed Code" />
+                    
+                    
+
                     <asp:BoundField DataField="CreatedAt" HeaderText="Created At" />
                     <asp:BoundField DataField="VideoDurationSeconds" HeaderText="Duration (Sec)" />
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />

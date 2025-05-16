@@ -2,6 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    .form-control-sm {
+        max-width: 150px; /* Adjust as needed */
+    }
+</style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -59,15 +64,18 @@
             <div class="card-header bg-primary text-white text-center">
                 <h4>View Sub Courses</h4>
             </div>
-            <div class="card-body">
+            <div class="card-body table-responsive">
                 <asp:GridView ID="GridView1" runat="server"
                     CssClass="table table-bordered table-hover table-striped"
                     HeaderStyle-CssClass="table-info"
                     AllowPaging="True"
+                    PageSize="5"
                     AllowSorting="True"
                     AutoGenerateColumns="False"
                     DataKeyNames="SubCourseID"
-                    DataSourceID="SqlDataSource1">
+                    DataSourceID="SqlDataSource1"
+                    OnRowUpdating="GridView1_RowUpdating">
+                     <PagerStyle CssClass="pagination" HorizontalAlign="Center" />
                     <Columns>
                         <asp:BoundField DataField="SubCourseID" HeaderText="SubCourse ID" ReadOnly="True" />
                         <asp:BoundField DataField="MasterCourseID" HeaderText="Master Course ID" />
@@ -78,10 +86,16 @@
                         <asp:BoundField DataField="Picture" HeaderText="Picture" />
                         
                         <asp:TemplateField HeaderText="Picture">
-                            <ItemTemplate>
-                                <asp:Image ID="imgSubCourse" runat="server" ImageUrl='<%# Eval("Picture") %>' Width="60px" Height="60px" CssClass="img-thumbnail" />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+    <ItemTemplate>
+        <asp:Image ID="imgSubCourse" runat="server" ImageUrl='<%# Eval("Picture") %>' Width="60px" Height="60px" CssClass="img-thumbnail" />
+    </ItemTemplate>
+    <EditItemTemplate>
+        <asp:FileUpload ID="FileUploadEdit" runat="server" CssClass="form-control form-control-sm" />
+        <asp:HiddenField ID="HiddenOldImage" runat="server" Value='<%# Eval("Picture") %>' />
+    </EditItemTemplate>
+    <ItemStyle Width="100px" />
+</asp:TemplateField>
+
 
                         <asp:BoundField DataField="CreatedAt" HeaderText="Created At" />
                         <asp:CommandField ShowEditButton="True" ShowDeleteButton="True"
