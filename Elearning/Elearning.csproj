@@ -43,7 +43,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Razorpay, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Razorpay.3.1.4\lib\net47\Razorpay.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -3771,6 +3780,7 @@
     <Content Include="ProfilePics\default.jpg" />
     <Content Include="User\BuyCourses.aspx" />
     <Content Include="User\Cart.aspx" />
+    <Content Include="User\courses.aspx" />
     <Content Include="User\CoursesDetails.aspx" />
     <Content Include="User\LearningPage.aspx" />
     <Content Include="User\membership.aspx" />
@@ -3962,6 +3972,13 @@
     </Compile>
     <Compile Include="User\Cart.aspx.designer.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\courses.aspx.cs">
+      <DependentUpon>courses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\courses.aspx.designer.cs">
+      <DependentUpon>courses.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CoursesDetails.aspx.cs">
       <DependentUpon>CoursesDetails.aspx</DependentUpon>

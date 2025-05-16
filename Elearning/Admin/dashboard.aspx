@@ -5,8 +5,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
-    <div class="justify-evenly flex py-5">
+
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+      <div style="width:50px; height:10000px; background-color:pink;"></div>
+
+
+    <%--<div class="justify-evenly flex py-5">
         <div>
             <h3>Active Users Count</h3>
             <asp:Label ID="Label1" runat="server"></asp:Label>
@@ -45,6 +51,8 @@
                 </ChartAreas>
             </asp:Chart>
         </div>
-    </div>
+    </div>--%>
+
+
 
 </asp:Content>

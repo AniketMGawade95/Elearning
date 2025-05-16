@@ -51,8 +51,7 @@
                     AllowSorting="True"
                     AutoGenerateColumns="False"
                     DataKeyNames="MasterCourseID"
-                    DataSourceID="SqlDataSource1"
-                    PageSize="5"
+                    DataSourceID="SqlDataSource1"                    
                     OnRowUpdating="GridView1_RowUpdating">
                      <PagerStyle CssClass="pagination" HorizontalAlign="Center" />
                     <Columns>

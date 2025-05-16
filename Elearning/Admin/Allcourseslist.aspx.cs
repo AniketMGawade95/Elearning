@@ -20,6 +20,7 @@ namespace Elearning.Admin
             conn.Open();
             if (!IsPostBack)
             {
+                GridView1.DataBind();
                 LoadMasterCoursesDropDown();
                 LoadSubCoursesDropDown();
                 LoadTopicsDropDown();

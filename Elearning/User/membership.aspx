@@ -5,7 +5,11 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container mt-5">
+
+
+
+
+    <%--<div class="container mt-5">
         <h2 class="text-center mb-4">Subscription Plans</h2>
         <div class="row">
             <asp:Repeater ID="rptPlans" runat="server">
@@ -24,5 +28,10 @@
                 </ItemTemplate>
             </asp:Repeater>
         </div>
-    </div>
+    </div>--%>
+
+
+
+
+
 </asp:Content>

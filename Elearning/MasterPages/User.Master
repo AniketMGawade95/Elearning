@@ -189,12 +189,12 @@
 
 </li>
             
-            <li class="nav-item">
+            <%--<li class="nav-item">
   
                 <asp:HyperLink ID="HyperLink5" class="nav-link" runat="server" NavigateUrl="~/User/LearningPage.aspx"><i class="nav-icon fas fa-file"></i>
 <p>Learning Page</p></asp:HyperLink>
 
-</li>
+</li>--%>
             <li class="nav-item">
   
 

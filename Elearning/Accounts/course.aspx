@@ -44,7 +44,11 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+
+
+
+
+            <%--<div class="row">
                 <div class="col-lg-4 col-md-6 pb-4">
                     <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="detail.html">
                         <img class="img-fluid" src="img/courses-1.jpg" alt="">
@@ -162,7 +166,54 @@
                         </ul>
                       </nav>
                 </div>
+            </div>--%>
+
+
+
+           <div class="row">
+    <asp:Repeater ID="rptSubCourses" runat="server" OnItemCommand="rptSubCourses_ItemCommand">
+        <ItemTemplate>
+            <div class="col-lg-4 col-md-6 pb-4">
+                <asp:LinkButton runat="server" CommandName="ViewDetails" CommandArgument='<%# Eval("SubCourseID") %>' CssClass="courses-list-item position-relative d-block overflow-hidden mb-2" Style="text-decoration: none;">
+                    <asp:Image ID="imgCourse" runat="server" ImageUrl='<%# Eval("Picture") %>' CssClass="img-fluid" AlternateText="Course Image" />
+                    <div class="courses-text">
+                        <h4 class="text-center text-white px-3"><%# Eval("SubCourseName") %></h4>
+                        <div class="border-top w-100 mt-3">
+                            <div class="d-flex justify-content-between p-4">
+                                <span class="text-white"><i class="fa fa-clock mr-2"></i><%# Eval("Duration") %></span>
+                                <span class="text-white"><i class="fa fa-money-bill mr-2"></i>₹ <%# Eval("Price") %></span>
+                            </div>
+                        </div>
+                    </div>
+                </asp:LinkButton>
             </div>
+        </ItemTemplate>
+    </asp:Repeater>
+</div>
+
+<!-- Paging Buttons -->
+<div class="col-12">
+    <nav aria-label="Page navigation">
+        <ul class="pagination pagination-lg justify-content-center mb-0">
+            <asp:Repeater ID="rptPaging" runat="server" OnItemCommand="rptPaging_ItemCommand">
+                <ItemTemplate>
+                    <li class='<%# (bool)Eval("IsCurrent") ? "page-item active" : "page-item" %>'>
+                        <asp:LinkButton runat="server" CommandName="Page" CommandArgument='<%# Eval("PageNumber") %>' CssClass="page-link"><%# Eval("PageNumber") %></asp:LinkButton>
+                    </li>
+                </ItemTemplate>
+            </asp:Repeater>
+        </ul>
+    </nav>
+</div>
+
+
+
+
+
+
+
+
+
         </div>
     </div>
     <!-- Courses End -->

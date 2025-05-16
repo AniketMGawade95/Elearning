@@ -9,25 +9,30 @@ namespace Elearning.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                LoadPlans();
-            }
+            //if (!IsPostBack)
+            //{
+            //    LoadPlans();
+            //}
         }
 
-        private void LoadPlans()
-        {
-            string cs = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
-            SqlConnection con = new SqlConnection(cs);
-            SqlCommand cmd = new SqlCommand("sp_GetAllSubscriptionPlans", con);
-            cmd.CommandType = CommandType.StoredProcedure;
+        //private void LoadPlans()
+        //{
+        //    string cs = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
+        //    SqlConnection con = new SqlConnection(cs);
+        //    SqlCommand cmd = new SqlCommand("sp_GetAllSubscriptionPlans", con);
+        //    cmd.CommandType = CommandType.StoredProcedure;
 
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //    DataTable dt = new DataTable();
+        //    da.Fill(dt);
 
-            rptPlans.DataSource = dt;
-            rptPlans.DataBind();
-        }
+        //    rptPlans.DataSource = dt;
+        //    rptPlans.DataBind();
+        //}
+
+
+
+
+
     }
 }

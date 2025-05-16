@@ -116,3 +116,8 @@ C:\GITHUB\Elearning\Elearning\obj\Debug\Elearning.csproj.CoreCompileInputs.cache
 C:\GITHUB\Elearning\Elearning\obj\Debug\Elearning.csproj.Up2Date
 C:\GITHUB\Elearning\Elearning\obj\Debug\Elearning.dll
 C:\GITHUB\Elearning\Elearning\obj\Debug\Elearning.pdb
+E:\Github\Elearning\Elearning\bin\BouncyCastle.Crypto.dll
+E:\Github\Elearning\Elearning\bin\Newtonsoft.Json.dll
+E:\Github\Elearning\Elearning\bin\Razorpay.dll
+E:\Github\Elearning\Elearning\bin\BouncyCastle.Crypto.xml
+E:\Github\Elearning\Elearning\bin\Newtonsoft.Json.xml
