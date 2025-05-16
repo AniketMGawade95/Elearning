@@ -4,8 +4,9 @@
     "\\Elearning",
     "\\Elearning\\Accounts",
     "\\Elearning\\Admin",
-    "\\Elearning\\MasterPages"
+    "\\Elearning\\MasterPages",
+    "\\Elearning\\User"
   ],
-  "SelectedNode": "\\Elearning\\MasterPages\\Admin.Master",
+  "SelectedNode": "\\Elearning\\User\\courses.aspx",
   "PreviewInSolutionExplorer": false
 }
