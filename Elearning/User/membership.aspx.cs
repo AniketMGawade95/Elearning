@@ -17,7 +17,7 @@ namespace Elearning.User
 
         private void LoadPlans()
         {
-            string cs = ConfigurationManager.ConnectionStrings["Elearning"].ConnectionString;
+            string cs = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("sp_GetAllSubscriptionPlans", con);
             cmd.CommandType = CommandType.StoredProcedure;

@@ -8,7 +8,7 @@ namespace Elearning.Admin
 {
     public partial class dashboard : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Elearning"].ConnectionString);
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ConnectionString);
 
         protected void Page_Load(object sender, EventArgs e)
         {
