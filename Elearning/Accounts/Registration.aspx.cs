@@ -59,7 +59,7 @@ namespace Elearning.Accounts
 
             try
             {
-                string cs = ConfigurationManager.ConnectionStrings["Elearning"].ConnectionString;
+                string cs = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(cs))
                 {
                     con.Open();
