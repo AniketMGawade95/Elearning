@@ -13,7 +13,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-            <div>
+           <%-- <div>
 
             <div>
                 <h1>My Courses</h1><br />
@@ -62,6 +62,63 @@
                 </ItemTemplate>
             </asp:DataList>
 
-        </div>
+        </div>--%>
+
+
+
+
+   <div class="container my-5">
+
+    <!-- Heading -->
+    <div class="text-center mb-4">
+        <h1 class="text-primary fw-bold">My Courses</h1>
+    </div>
+
+    <!-- Course Cards -->
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <asp:DataList ID="DatalistCourse" runat="server" RepeatDirection="Horizontal" RepeatColumns="3" CssClass="d-flex flex-wrap w-100">
+            <ItemTemplate>
+                <div class="col d-flex">
+                    <div class="card shadow border-primary w-100" style="min-height: 100%; max-height: 550px; width:500px;">
+
+                        <!-- Image -->
+                        <asp:Image ID="imgCourse" runat="server" ImageUrl='<%# Eval("Picture") %>' 
+                            CssClass="card-img-top" 
+                            Style="height: 200px; width:350px; object-fit: cover;" 
+                            AlternateText="Course Image" />
+
+                        <!-- Card Body -->
+                        <div class="card-body bg-light">
+                            <h5 class="card-title text-info fw-semibold"><%# Eval("SubCourseName") %></h5>
+                        </div>
+
+                        <!-- Details List -->
+                        <ul class="list-group list-group-flush">
+
+                            <li class="list-group-item">⏱ Duration: <span class="text-primary"><%# Eval("Duration") %></span></li>
+
+
+                            <li class="list-group-item">📘 Level: <span class="text-primary">Beginner</span></li>
+                            <li class="list-group-item">📚 Topics: <span class="text-primary"><%# Eval("NumberOfTopics") %></span></li>
+                            <li class="list-group-item">📅 Deadline: <span class="text-danger"><%# Eval("Deadline") %></span></li>
+                        </ul>
+
+                        <!-- Button -->
+                        <div class="card-body text-center mt-auto">
+                            <asp:Button ID="btnGetCourse" runat="server" Text="Get Into Course"
+                                CssClass="btn btn-primary w-100"
+                                CommandName="GetCourse"
+                                CommandArgument='<%# Eval("SubCourseID") %>'
+                                OnCommand="btnGetCourse_Command" />
+                        </div>
+
+                    </div>
+                </div>
+            </ItemTemplate>
+        </asp:DataList>
+    </div>
+</div>
+
+
 
 </asp:Content>

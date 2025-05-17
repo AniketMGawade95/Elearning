@@ -75,7 +75,13 @@ namespace Elearning.Admin
                         cmd.Parameters.AddWithValue("@PicturePath", relativePath);
 
                         cmd.ExecuteNonQuery();
+
+                        
                     }
+
+                    DropDownList1.SelectedIndex = 0;
+                    TextBox1.Text = string.Empty;
+                    TextBox2.Text = string.Empty;
 
                     GridView1.DataBind();
                     Response.Write("<script>alert('Data inserted successfully!');</script>");

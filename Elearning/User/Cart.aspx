@@ -19,7 +19,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-            <div>
+<%--            <div>
             <div>
                <h1>
 My Cart
@@ -87,7 +87,81 @@ My Cart
         <div class="text-right mt-3">
                 <asp:Button ID="btnPay" runat="server" Text="Proceed to Pay" CssClass="btn btn-success" OnClick="btnPay_Click"/>
             </div>
+--%>
 
+
+
+
+
+
+    <div class="container my-5">
+    <!-- Cart Heading -->
+    <div class="text-center mb-4">
+        <h1 class="text-primary fw-bold">My Cart</h1>
+    </div>
+
+    <!-- DataList: Cart Items -->
+    <asp:DataList ID="DatalistCourse" runat="server" RepeatDirection="Horizontal" RepeatColumns="3" CssClass="row row-cols-1 row-cols-md-3 g-4">
+        <ItemTemplate>
+            <div class="col">
+                <div class="card h-100 shadow border-info">
+                    <!-- Course Image -->
+                    <asp:Image ID="imgCourse" runat="server" ImageUrl='<%# Eval("Picture") %>'
+                        CssClass="card-img-top img-fluid"
+                        Style="height: 200px; object-fit: cover;"
+                        AlternateText="Course Image" />
+
+                    <!-- Course Content -->
+                    <div class="card-body bg-light">
+                        <h5 class="card-title text-primary fw-semibold"><%# Eval("SubCourseName") %></h5>
+                    </div>
+
+                    <!-- Course Details -->
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">⏱ Duration: <%# Eval("Duration") %></li>
+                        <li class="list-group-item">📘 Level: <span class="text-info">Beginner</span></li>
+                        <li class="list-group-item">⭐ Rating: <%# Eval("Rating") %></li>
+                    </ul>
+
+                    <!-- Actions -->
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <asp:Button ID="btnRemove" runat="server" Text="Remove"
+                            CssClass="btn btn-danger"
+                            CommandName="Remove"
+                            CommandArgument='<%# Eval("CartID") %>'
+                            OnCommand="btnRemove_Command" />
+                        <asp:Label ID="Label1" runat="server" CssClass="fw-bold text-dark"
+                            Text='<%# "Rs. " + Eval("Price") %>'></asp:Label>
+                    </div>
+                </div>
+            </div>
+        </ItemTemplate>
+    </asp:DataList>
+
+    <!-- Spacer -->
+    <hr class="my-4" />
+
+    <!-- GridView: Summary -->
+    <asp:GridView ID="GridViewCart" runat="server" AutoGenerateColumns="False"
+        CssClass="table table-bordered table-hover border-primary">
+        <Columns>
+            <asp:BoundField DataField="SubCourseName" HeaderText="Course Name" />
+            <asp:BoundField DataField="Price" HeaderText="Price (Rs)" />
+        </Columns>
+    </asp:GridView>
+
+    <!-- Total Price -->
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <strong class="text-info">Total Price: Rs. </strong>
+            <asp:Label ID="lblTotalPrice" runat="server" CssClass="fw-bold text-success"></asp:Label>
+        </div>
+        <div class="col-md-6 text-end">
+            <asp:Button ID="btnPay" runat="server" Text="Proceed to Pay"
+                CssClass="btn btn-success px-4" OnClick="btnPay_Click" />
+        </div>
+    </div>
+</div>
 
 
 </asp:Content>

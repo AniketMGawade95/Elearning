@@ -13,8 +13,16 @@ namespace Elearning.User
     public partial class BuyCourses : System.Web.UI.Page
     {
         SqlConnection conn;
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Session["FullName"] == null || Session["UserID"] == null)
+            {
+                Response.Redirect("~/Accounts/startingmainpage.aspx");
+            }
+
             String cs = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
             conn = new SqlConnection(cs);
             conn.Open();

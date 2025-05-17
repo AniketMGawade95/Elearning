@@ -11,6 +11,11 @@ namespace Elearning.MasterPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["FullName"] == null || Session["UserID"] == null)
+            {
+                Response.Redirect("~/Accounts/startingmainpage.aspx");
+            }
+
             Image1.ImageUrl = Session["ProfilePic"].ToString();
             Label1.Text = Session["FullName"].ToString();
         }

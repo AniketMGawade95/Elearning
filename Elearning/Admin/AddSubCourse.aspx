@@ -87,11 +87,11 @@
                         
                         <asp:TemplateField HeaderText="Picture">
     <ItemTemplate>
-        <asp:Image ID="imgSubCourse" runat="server" ImageUrl='<%# Eval("Picture") %>' Width="60px" Height="60px" CssClass="img-thumbnail" />
+        <asp:Image ID="imgSubCourse" runat="server" ImageUrl='<%#  ResolveUrl(Uri.EscapeUriString(Eval("Picture").ToString())) %>' Width="60px" Height="60px" CssClass="img-thumbnail" />
     </ItemTemplate>
     <EditItemTemplate>
         <asp:FileUpload ID="FileUploadEdit" runat="server" CssClass="form-control form-control-sm" />
-        <asp:HiddenField ID="HiddenOldImage" runat="server" Value='<%# Eval("Picture") %>' />
+        <asp:HiddenField ID="HiddenOldImage" runat="server" Value='<%#  ResolveUrl(Uri.EscapeUriString(Eval("Picture").ToString())) %>' />
     </EditItemTemplate>
     <ItemStyle Width="100px" />
 </asp:TemplateField>

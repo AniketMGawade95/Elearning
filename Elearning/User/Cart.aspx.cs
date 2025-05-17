@@ -18,8 +18,11 @@ namespace Elearning.User
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["FullName"] == null || Session["UserID"] == null)
+            {
+                Response.Redirect("~/Accounts/startingmainpage.aspx");
+            }
 
-            
 
             if (!IsPostBack)
             {

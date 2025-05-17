@@ -15,6 +15,11 @@ namespace Elearning.User
         SqlConnection conn;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["FullName"] == null || Session["UserID"] == null)
+            {
+                Response.Redirect("~/Accounts/startingmainpage.aspx");
+            }
+
             LoadCourses();
 
         }
@@ -24,11 +29,14 @@ namespace Elearning.User
             //int userId = 1;
             int userId = Convert.ToInt32(Session["UserID"]);
 
+
             string cnf = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
             conn = new SqlConnection(cnf);
             conn.Open();
 
-            string q = "exec GetMyCourses";
+            //SqlCommand cmdd = new SqlCommand("select SubCourseID from MyCourses where UserID='" + userId + "'", conn);
+
+            string q = $"exec GetMyCourses {userId}";
             SqlDataAdapter ada = new SqlDataAdapter(q, conn);
             DataSet ds = new DataSet();
             ada.Fill(ds);
