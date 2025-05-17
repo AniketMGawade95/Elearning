@@ -32,7 +32,7 @@
 
                 <div class="row">
                     <div class="offset-sm-3 col-sm-6 text-center">
-                        <asp:Button ID="Button1" runat="server" Text="Add" OnClick="Button1_Click" CssClass="btn btn-primary w-50" />
+                        <asp:Button ID="Button1" runat="server" Text="Add" OnClick="Button1_Click" CssClass="btn btn-info w-50" />
                     </div>
                 </div>
             </div>

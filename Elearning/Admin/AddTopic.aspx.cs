@@ -67,6 +67,31 @@ namespace Elearning.Admin
                 string q = $"exec insertTopics '{subcourseid}', '{topicname}', '{videoembedcode}', '{videodurationdeconds}'";
                 SqlCommand cmd = new SqlCommand(q, conn);
                 cmd.ExecuteNonQuery();
+
+
+
+                string durationQuery = "SELECT SUM(VideoDurationSeconds) FROM Topics WHERE SubCourseID = @SubCourseID";
+                SqlCommand durationCmd = new SqlCommand(durationQuery, conn);
+                durationCmd.Parameters.AddWithValue("@SubCourseID", subcourseid);
+                object totalDurationObj = durationCmd.ExecuteScalar();
+
+                // Ensure the result is not null
+                int totalDuration = 0;
+                if (totalDurationObj != DBNull.Value)
+                {
+                    totalDuration = Convert.ToInt32(totalDurationObj);
+                }
+
+                // 3. Update SubCourse duration
+                string updateDurationQuery = "UPDATE SubCourses SET Duration = @Duration WHERE SubCourseID = @SubCourseID";
+                SqlCommand updateCmd = new SqlCommand(updateDurationQuery, conn);
+                updateCmd.Parameters.AddWithValue("@Duration", totalDuration);
+                updateCmd.Parameters.AddWithValue("@SubCourseID", subcourseid);
+                updateCmd.ExecuteNonQuery();
+
+
+
+
                 GridView1.DataBind();
                 Response.Write("<script>alert('Data inserted Sucessfully!')</script>");
                 //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Data inserted Successfully!');", true);

@@ -158,13 +158,13 @@
 
 
 
-                        <li class="nav-item">
+                       <%-- <li class="nav-item">
   
                 <asp:HyperLink ID="HyperLink7" class="nav-link" runat="server" NavigateUrl="~/User/CoursesDetails.aspx"><i class="nav-icon far fa-plus-square"></i>
 <p>Course Details</p></asp:HyperLink>
 
 
-</li>
+</li>--%>
 
 
 
