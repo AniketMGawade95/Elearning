@@ -2,6 +2,31 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+        <style>
+        .plan-card {
+    transition: 0.3s;
+    box-shadow: 2px 2px 10px #ddd;
+}
+
+.plan-card:hover {
+    transform: scale(1.02);
+    box-shadow: 3px 3px 15px #bbb;
+}
+
+.buy-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+    </style>
+
+
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -9,26 +34,23 @@
 
 
 
-    <%--<div class="container mt-5">
-        <h2 class="text-center mb-4">Subscription Plans</h2>
-        <div class="row">
-            <asp:Repeater ID="rptPlans" runat="server">
-                <ItemTemplate>
-                    <div class="col-md-4 mb-4">
-                        <div class="card shadow h-100">
-                            <div class="card-body">
-                                <h5 class="card-title text-primary"><%# Eval("PlanName") %></h5>
-                                <p class="card-text"><%# Eval("Features").ToString().Replace(";", "<br/>") %></p>
-                                <h6>Price: ₹<%# Eval("Price") %></h6>
-                                <h6>Validity: <%# Eval("Validity") %></h6>
-                                <a href='BuySubscription.aspx?PlanID=<%# Eval("SubscriptionPlanID") %>' class="btn btn-success mt-2">Buy</a>
-                            </div>
-                        </div>
-                    </div>
-                </ItemTemplate>
-            </asp:Repeater>
-        </div>
-    </div>--%>
+  <div>
+    <asp:Repeater ID="Repeater1" runat="server" >
+        <ItemTemplate>
+            <div class="plan-card" style="border:1px solid #ccc; padding:15px; margin:10px; border-radius:8px;">
+                <h3><%# Eval("PlanName") %> Plan</h3>
+                <!--<p><strong>Master Course:</strong> <%# Eval("MasterCourse") %></p>-->
+                <p><strong>Features:</strong> <%# Eval("Features") %></p>
+                <p><strong>SubCourses:</strong> <%# Eval("SubCourses") %></p>
+                <p><strong>Validity:</strong> <%# Eval("Validity") %> Days</p>
+                <p><strong>Price:</strong> ₹<%# Eval("Price") %></p>
+                <asp:Button ID="btnBuy" runat="server" Text="Buy Now" CssClass="buy-btn" CommandArgument='<%# Eval("Price") %>' OnClick="btnBuy_Click" />
+            </div>
+        </ItemTemplate>
+    </asp:Repeater>
+
+
+</div>
 
 
 

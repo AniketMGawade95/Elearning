@@ -121,3 +121,7 @@ E:\Github\Elearning\Elearning\bin\Newtonsoft.Json.dll
 E:\Github\Elearning\Elearning\bin\Razorpay.dll
 E:\Github\Elearning\Elearning\bin\BouncyCastle.Crypto.xml
 E:\Github\Elearning\Elearning\bin\Newtonsoft.Json.xml
+E:\Github\Elearning\Elearning\bin\BouncyCastle.Cryptography.dll
+E:\Github\Elearning\Elearning\bin\itextsharp.dll
+E:\Github\Elearning\Elearning\bin\BouncyCastle.Cryptography.xml
+E:\Github\Elearning\Elearning\bin\itextsharp.xml

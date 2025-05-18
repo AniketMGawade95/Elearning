@@ -20,7 +20,10 @@ namespace Elearning.User
                 Response.Redirect("~/Accounts/startingmainpage.aspx");
             }
 
-            LoadCourses();
+            if (!IsPostBack)
+            {
+                LoadCourses();
+            }
 
         }
 
@@ -49,7 +52,13 @@ namespace Elearning.User
 
         protected void btnGetCourse_Command(object sender, CommandEventArgs e)
         {
-            Response.Redirect("~/User/LearningPage.aspx");
+            if (e.CommandName == "GetCourse")
+            {
+                int subCourseId = Convert.ToInt32(e.CommandArgument);
+                // Store the subCourseId in session or query string to pass it
+                Session["SelectedSubCourseID"] = subCourseId;
+                Response.Redirect("~/User/LearningPage.aspx");
+            }
         }
     }
 }
