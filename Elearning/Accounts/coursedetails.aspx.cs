@@ -52,7 +52,22 @@ namespace Elearning.Accounts
                         lblCourseName.Text = reader["SubCourseName"].ToString();
                         lblPrice.Text = reader["Price"].ToString();
                         lblRating.Text = reader["Rating"].ToString();
-                        //lblDuration.Text = reader["Duration"].ToString();
+
+
+                        int totalSeconds = 0;
+
+                        if (reader["Duration"] != DBNull.Value)
+                        {
+                            totalSeconds = Convert.ToInt32(reader["Duration"]);
+                        }
+
+                        int hours = totalSeconds / 3600;
+                        int minutes = (totalSeconds % 3600) / 60;
+                        lblDuration.Text = $"{hours} hr {minutes} min";
+
+
+
+
                         imgCourse.ImageUrl = reader["Picture"].ToString().Replace("~", "");
                     }
                     con.Close();

@@ -176,6 +176,60 @@
 <!-- Courses End -->
 
 
+
+
+
+    
+
+   <asp:ScriptManager ID="ScriptManager1" runat="server" />
+
+<asp:UpdatePanel ID="upSpin" runat="server">
+    <ContentTemplate>
+
+        <div class="container my-5">
+            <div class="card shadow-lg p-4">
+                <div class="text-center">
+                    <h2 class="mb-3 text-primary">🎁 Spin the Wheel - Get Your Discount!</h2>
+                    <p class="text-muted">Enter your email and click "Spin" to win a discount. One-time use only!</p>
+                </div>
+
+                <asp:Panel ID="pnlSpin" runat="server" DefaultButton="btnSpin" CssClass="text-center">
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/spin.gif" Width="120px" Height="120px" CssClass="mb-3" />
+                    <div class="mb-3">
+                        <asp:TextBox ID="TextBox1" runat="server" Placeholder="Enter your email" CssClass="form-control w-50 mx-auto" TextMode="Email"></asp:TextBox>
+                    </div>
+                    <asp:Button ID="btnSpin" runat="server" Text="Spin" OnClick="btnSpin_Click" CssClass="btn btn-warning px-4" />
+                </asp:Panel>
+
+                <asp:Image ID="imgSpinWheel" runat="server" ImageUrl="~/Images/spin.gif" Visible="false" CssClass="d-block mx-auto my-3" Width="100" Height="100" />
+
+                <asp:Panel ID="pnlCaptcha" runat="server" Visible="false" CssClass="text-center mt-4">
+                    <asp:Label ID="lblCaptcha" runat="server" CssClass="badge bg-success fs-4 p-2 mb-2 d-block text-black" />
+                    <asp:Label ID="Label1" runat="server" Text="Copy and use this Captcha on the Cart page after adding your courses. This is a one-time-use discount!" CssClass="form-text text-black" />
+                </asp:Panel>
+
+                <div class="mt-3 text-center">
+                    <asp:Label ID="lblResult" runat="server" CssClass="text-success fw-bold fs-5" />
+                </div>
+            </div>
+        </div>
+
+    </ContentTemplate>
+    <Triggers>
+        <asp:AsyncPostBackTrigger ControlID="btnSpin" EventName="Click" />
+    </Triggers>
+</asp:UpdatePanel>
+
+
+
+
+
+
+
+
+
+
+
 <!-- Team Start -->
 <div class="container-fluid py-5">
     <div class="container py-5">
@@ -367,20 +421,20 @@
             <div class="row">
                 <div class="col-6 form-group">
                     <asp:TextBox ID="txtName" runat="server" CssClass="form-control border-top-0 border-right-0 border-left-0 p-0" 
-                        Placeholder="Your Name" required="required" />
+                        Placeholder="Your Name"  />
                 </div>
                 <div class="col-6 form-group">
                     <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control border-top-0 border-right-0 border-left-0 p-0" 
-                        Placeholder="Your Email" TextMode="Email" required="required" />
+                        Placeholder="Your Email" TextMode="Email"  />
                 </div>
             </div>
             <div class="form-group">
                 <asp:TextBox ID="txtSubject" runat="server" CssClass="form-control border-top-0 border-right-0 border-left-0 p-0" 
-                    Placeholder="Subject" required="required" />
+                    Placeholder="Subject"  />
             </div>
             <div class="form-group">
                 <asp:TextBox ID="txtMessage" runat="server" CssClass="form-control border-top-0 border-right-0 border-left-0 p-0"
-                    Rows="5" TextMode="MultiLine" Placeholder="Message" required="required" />
+                    Rows="5" TextMode="MultiLine" Placeholder="Message"  />
             </div>
             <div>
                 <asp:Button ID="btnSend" runat="server" Text="Send Message" CssClass="btn btn-primary py-3 px-5" OnClick="btnSend_Click" />

@@ -168,7 +168,7 @@
                         <div class="d-flex justify-content-between border-bottom px-4">
                             <h6 class="text-white my-3">Duration</h6>
                             <h6 class="text-white my-3">
-                                <asp:Label ID="lbltotalhoursofalltopics" runat="server" Text=""></asp:Label> Hrs</h6>
+                                <asp:Label ID="lblDuration" runat="server" Text=""></asp:Label> Hrs</h6>
                         </div>
                         <div class="d-flex justify-content-between border-bottom px-4">
                             <h6 class="text-white my-3">Skill level</h6>

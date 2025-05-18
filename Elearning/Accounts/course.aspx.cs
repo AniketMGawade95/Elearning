@@ -74,5 +74,23 @@ namespace Elearning.Accounts
         }
 
 
+
+
+        public string FormatDuration(object durationObj)
+        {
+            if (durationObj == DBNull.Value || durationObj == null)
+                return "0 hr 0 min";
+
+            int totalSeconds = Convert.ToInt32(durationObj);
+            int hours = totalSeconds / 3600;
+            int minutes = (totalSeconds % 3600) / 60;
+            return $"{hours} hr {minutes} min";
+        }
+
+
+
+
+
+
     }
 }

@@ -64,7 +64,13 @@
                         <h4 class="text-center text-white px-3"><%# Eval("SubCourseName") %></h4>
                         <div class="border-top w-100 mt-3">
                             <div class="d-flex justify-content-between p-4">
-                                <span class="text-white"><i class="fa fa-clock mr-2"></i><%# Eval("Duration") %></span>
+
+
+                                <%--<span class="text-white"><i class="fa fa-clock mr-2"></i><%# Eval("Duration") %></span>--%>
+                                <span class="text-white"><i class="fa fa-clock mr-2"></i><%# FormatDuration(Eval("Duration")) %></span>
+
+
+
                                 <span class="text-white"><i class="fa fa-money-bill mr-2"></i>₹ <%# Eval("Price") %></span>
                             </div>
                         </div>

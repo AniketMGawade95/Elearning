@@ -7,30 +7,48 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Elearning
+namespace Elearning.Admin
 {
 
 
-    public partial class chat
+    public partial class AdminChat
     {
 
         /// <summary>
-        /// form1 control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
-        /// pnlChat control.
+        /// rptUsers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlChat;
+        protected global::System.Web.UI.WebControls.Repeater rptUsers;
+
+        /// <summary>
+        /// UpdatePanelMessages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelMessages;
+
+        /// <summary>
+        /// chatBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chatBox;
 
         /// <summary>
         /// rptMessages control.
@@ -42,22 +60,22 @@ namespace Elearning
         protected global::System.Web.UI.WebControls.Repeater rptMessages;
 
         /// <summary>
-        /// TextBox1 control.
+        /// Timer1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.Timer Timer1;
 
         /// <summary>
-        /// Button1 control.
+        /// UpdatePanelInput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.UpdatePanel UpdatePanelInput;
 
         /// <summary>
         /// txtMessage control.

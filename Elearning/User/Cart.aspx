@@ -150,6 +150,52 @@ My Cart
         </Columns>
     </asp:GridView>
 
+
+
+
+
+
+        <div class="container my-4">
+    <div class="card shadow p-4">
+        <h4 class="text-primary mb-3">Apply Your Offer Captcha</h4>
+
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-2">
+                <asp:TextBox 
+                    ID="txtOfferCaptcha" 
+                    runat="server" 
+                    Placeholder="Enter Offer Captcha" 
+                    CssClass="form-control" />
+            </div>
+
+            <div class="col-md-3 mb-2">
+                <asp:Button 
+                    ID="btnApplyOffer" 
+                    runat="server" 
+                    Text="Apply Offer" 
+                    OnClick="btnApplyOffer_Click" 
+                    CssClass="btn btn-success w-100" />
+            </div>
+
+            <div class="col-md-12 mt-2">
+                <asp:Label 
+                    ID="lblDiscountMsg" 
+                    runat="server" 
+                    CssClass="text-success fw-semibold" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
     <!-- Total Price -->
     <div class="row mt-4">
         <div class="col-md-6">

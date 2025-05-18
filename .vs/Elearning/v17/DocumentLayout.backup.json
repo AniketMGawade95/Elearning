@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "E:\\Github\\Elearning\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Github\\Elearning\\Elearning\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Elearning\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Github\\Elearning\\Elearning\\MasterPages\\Admin.Master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Elearning\\MasterPages\\Admin.Master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     }
@@ -43,6 +47,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "packages.config",
+              "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\packages.config",
+              "RelativeDocumentMoniker": "Elearning\\packages.config",
+              "ToolTip": "E:\\Github\\Elearning\\Elearning\\packages.config",
+              "RelativeToolTip": "Elearning\\packages.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-05-17T16:34:42.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Admin.Master",
               "DocumentMoniker": "E:\\Github\\Elearning\\Elearning\\MasterPages\\Admin.Master",
               "RelativeDocumentMoniker": "Elearning\\MasterPages\\Admin.Master",

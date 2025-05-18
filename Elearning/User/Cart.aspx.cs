@@ -183,6 +183,87 @@ namespace Elearning.User
 
 
 
+
+            if (Session["DiscountCaptcha"] != null)
+            {
+                string usedCaptcha = Session["DiscountCaptcha"].ToString();
+
+                SqlCommand delCmd = new SqlCommand("DELETE FROM SpinOffers WHERE Captcha = @Captcha", conn);
+                delCmd.Parameters.AddWithValue("@Captcha", usedCaptcha);
+                delCmd.ExecuteNonQuery();
+
+                Session["DiscountCaptcha"] = null;
+            }
+
+
+
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        protected void btnApplyOffer_Click(object sender, EventArgs e)
+        {
+            string enteredCaptcha = txtOfferCaptcha.Text.Trim();
+            if (string.IsNullOrEmpty(enteredCaptcha))
+            {
+                lblDiscountMsg.Text = "Enter captcha first.";
+                return;
+            }
+
+            string connStr = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT DiscountPercentage, Email FROM SpinOffers WHERE Captcha = @Captcha", conn);
+                cmd.Parameters.AddWithValue("@Captcha", enteredCaptcha);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    int discount = Convert.ToInt32(reader["DiscountPercentage"]);
+                    string email = reader["Email"].ToString();
+
+                    decimal totalPrice = Convert.ToDecimal(lblTotalPrice.Text);
+                    decimal newPrice = totalPrice - (totalPrice * discount / 100);
+                    lblTotalPrice.Text = newPrice.ToString("0.00");
+
+                    Session["DiscountCaptcha"] = enteredCaptcha; // Store for deletion after payment
+
+                    lblDiscountMsg.Text = $"Offer applied: {discount}% off!";
+                }
+                else
+                {
+                    lblDiscountMsg.Text = "Invalid or used captcha.";
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
