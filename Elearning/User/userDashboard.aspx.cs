@@ -12,119 +12,92 @@ namespace Elearning.User
 {
     public partial class userDashboard : System.Web.UI.Page
     {
-        //SqlConnection conn;
-        //protected void Page_Load(object sender, EventArgs e)
-        //{
-        //    string cn = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
-        //    conn = new SqlConnection(cn);
-        //    conn.Open();
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ConnectionString);
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                gettotalcourses();
+                gettotaltopics();
+                LoadCourseProgress();
+            }
+            
+        }
+
+        private void LoadCourseProgress()
+        {
+            int userId = Convert.ToInt32(Session["UserID"].ToString());
+
+            string query = @"
+        SELECT 
+            mc.SubCourseID,
+            mc.SubCourseName,
+            mc.Picture,
+            mc.Duration,
+            COUNT(DISTINCT t.TopicID) AS TotalTopics,
+            COUNT(DISTINCT tc.TopicID) AS CompletedTopics
+        FROM MyCourses mc
+        LEFT JOIN Topics t ON mc.SubCourseID = t.SubCourseID
+        LEFT JOIN TopicCompletion tc 
+            ON tc.TopicID = t.TopicID AND tc.UserID = mc.UserID
+        WHERE mc.UserID = @UserID
+        GROUP BY mc.SubCourseID, mc.SubCourseName, mc.Picture, mc.Duration";
+
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ConnectionString))
+               
+            using (SqlCommand cmd = new SqlCommand(query, con))
+            {
+                cmd.Parameters.AddWithValue("@UserID", userId);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+
+                // Add ProgressPercent column
+                dt.Columns.Add("ProgressPercent", typeof(int));
+                foreach (DataRow row in dt.Rows)
+                {
+                    int total = Convert.ToInt32(row["TotalTopics"]);
+                    int completed = Convert.ToInt32(row["CompletedTopics"]);
+                    int percent = (total == 0) ? 0 : (completed * 100 / total);
+                    row["ProgressPercent"] = percent;
+                }
+
+                rptProgress.DataSource = dt;
+                rptProgress.DataBind();
+            }
+        }
 
 
-        //    if (!IsPostBack)
-        //    {
-        //        if (Session["UserID"] == null)
-        //        {
-        //            Response.Redirect("~/Login.aspx");
-        //            return;
-        //        }
+        public void gettotalcourses()
+        {
+            SqlCommand cmd = new SqlCommand("select count(SubCourseID) from MyCourses where UserID = @userid", con);
 
-        //        piechart();
-        //        subcourcecount();
-        //        MasterCourceCount();
-        //        incomplete_course();
-        //        complete_course();
-        //        LoadUserSubCourseProgress();
-        //        //  LoadSubCourseProgress();
-        //    }
-        //}
+            int userid = Convert.ToInt32(Session["UserID"].ToString());
+            cmd.Parameters.AddWithValue("@userid",userid);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
 
-        //protected void subcourcecount()
-        //{
-        //    string q = $"EXEC SubCourceCount";
-        //    SqlCommand cmd = new SqlCommand(q, conn);
-        //    SqlDataReader reader = cmd.ExecuteReader();
-        //    DataList1.DataSource = reader;
-        //    DataList1.DataBind();
-        //    reader.Close();
-        //}
+            subcoursescount.Text = ds.Tables[0].Rows[0][0].ToString();
+        }
+       
 
-        //protected void MasterCourceCount()
-        //{
-        //    string q = $"EXEC MasterCourceCount";
-        //    SqlCommand cmd = new SqlCommand(q, conn);
-        //    SqlDataReader reader = cmd.ExecuteReader();
-        //    DataList2.DataSource = reader;
-        //    DataList2.DataBind();
-        //    reader.Close();
-        //}
-        //protected void complete_course()
-        //{
-        //    int user = int.Parse(Session["UserID"].ToString());
-        //    string q = $"exec compelete_subcourse_user '{user}'";
-        //    SqlCommand cmd = new SqlCommand(q, conn);
-        //    SqlDataReader reader = cmd.ExecuteReader();
-        //    // reader.Read();
-        //    DataList3.DataSource = reader;
-        //    DataList3.DataBind();
-        //    reader.Close();
+        public void gettotaltopics()
+        {
+            SqlCommand cmd = new SqlCommand("select count(TopicID) from Topics inner join MyCourses on Topics.SubCourseID=MyCourses.SubCourseID where UserID=@userid", con);
 
-        //}
-        //protected void incomplete_course()
-        //{
-        //    int user = int.Parse(Session["UserID"].ToString());
+            int userid = Convert.ToInt32(Session["UserID"].ToString());
+            cmd.Parameters.AddWithValue("@userid", userid);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
 
-        //    string q = $"exec incomplete_subcourse_user '{user}'";
-        //    SqlCommand cmd = new SqlCommand(q, conn);
-        //    SqlDataReader reader = cmd.ExecuteReader();
-        //    //reader.Read();
-        //    DataList4.DataSource = reader;
-        //    DataList4.DataBind();
-        //    reader.Close();
+            totalnumbertopics.Text = ds.Tables[0].Rows[0][0].ToString();
+        }
 
-        //}
-        //protected void piechart()
-        //{
-        //    int user = int.Parse(Session["UserID"].ToString());
-
-        //    string q = $"exec user_piechart '{user}'";
-        //    SqlCommand cmd = new SqlCommand(q, conn);
-        //    SqlDataReader reader = cmd.ExecuteReader();
-        //    Chart1.DataSource = reader;
-        //    Chart1.DataBind();
-        //    reader.Close();
-
-        //}
-
-        //protected void LoadUserSubCourseProgress()
-        //{
-        //    int user = int.Parse(Session["UserID"].ToString());
-
-        //    SqlCommand cmd = new SqlCommand("get_subcourse_user", conn);
-        //    cmd.CommandType = CommandType.StoredProcedure;
-        //    cmd.Parameters.AddWithValue("@userid", user);
-
-        //    SqlDataReader rdr = cmd.ExecuteReader();
-        //    DataTable dt = new DataTable();
-        //    dt.Load(rdr);
-        //    rdr.Close();
-
-        //    if (!dt.Columns.Contains("ProgressPercent"))
-        //    {
-        //        dt.Columns.Add("ProgressPercent", typeof(int));
-
-        //        foreach (DataRow row in dt.Rows)
-        //        {
-        //            int totalVideos = Convert.ToInt32(row["TotalVideo"]);
-        //            int watched = Convert.ToInt32(row["VideosWatched"]);
-        //            int percent = (totalVideos > 0) ? (watched * 100 / totalVideos) : 0;
-
-        //            row["ProgressPercent"] = percent;
-        //        }
-        //    }
-
-        //    rptProgressBars.DataSource = dt;
-        //    rptProgressBars.DataBind();
-        //}
 
     }
 }

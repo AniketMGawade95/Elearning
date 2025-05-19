@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -25,6 +27,7 @@ namespace Elearning.Accounts
                     Session.Remove("MessageSent");
                 }
 
+                BindReviews();
 
                 pnlCaptcha.Visible = false;
 
@@ -35,6 +38,52 @@ namespace Elearning.Accounts
 
             }
         }
+
+
+
+
+        private void BindReviews()
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ConnectionString))
+            {
+                string query = @"SELECT 
+                                r.RatingID,
+                                r.UserID,
+                                u.Name AS UserName,
+                                u.ProfilePic,
+                                r.SubCourseID,
+                                r.Rating,
+                                r.Review AS ReviewText,
+                                r.CreatedDate
+                             FROM Ratings r
+                             INNER JOIN Users u ON r.UserID = u.UserID
+                             ORDER BY r.CreatedDate DESC";
+
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                rptReviews.DataSource = dt;
+                rptReviews.DataBind();
+            }
+        }
+
+        public string GetStars(int rating)
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < rating; i++)
+            {
+                sb.Append("★");
+            }
+            for (int i = rating; i < 5; i++)
+            {
+                sb.Append("☆");
+            }
+            return sb.ToString();
+        }
+
+
+
 
         private void LoadCourses()
         {

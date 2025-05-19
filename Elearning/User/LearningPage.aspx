@@ -82,14 +82,24 @@
                     <div class="card-body" style="max-height: 400px; overflow-y: auto;">
                         <asp:Repeater ID="rptTopics" runat="server" OnItemCommand="rptTopics_ItemCommand">
                             <ItemTemplate>
-                                <asp:LinkButton 
-                                    ID="lnkTopic" 
-                                    runat="server" 
-                                    CssClass="list-group-item list-group-item-action" 
-                                    Text='<%# Eval("TopicName") %>' 
-                                    CommandArgument='<%# Eval("TopicID") %>' 
-                                    CommandName="Select">
-                                </asp:LinkButton>
+                                <div class="d-flex justify-content-between align-items-center">
+    <asp:LinkButton 
+        ID="lnkTopic" 
+        runat="server" 
+        CssClass="list-group-item list-group-item-action flex-grow-1" 
+        Text='<%# Eval("TopicName") %>' 
+        CommandArgument='<%# Eval("TopicID") %>' 
+        CommandName="Select">
+    </asp:LinkButton>
+
+    <asp:CheckBox 
+        ID="chkWatched" 
+        runat="server" 
+        Checked='<%# Convert.ToBoolean(Eval("IsWatched")) %>' 
+        Enabled="false" 
+        ToolTip="Marked as Watched" />
+</div>
+
                             </ItemTemplate>
                         </asp:Repeater>
                     </div>

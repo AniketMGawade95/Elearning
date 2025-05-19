@@ -300,7 +300,7 @@
 <!-- Team End -->
 
 
-<!-- Testimonial Start -->
+<%--<!-- Testimonial Start -->
 <div class="container-fluid bg-image py-5" style="margin: 90px 0;">
     <div class="container py-5">
         <div class="row align-items-center">
@@ -340,7 +340,70 @@
         </div>
     </div>
 </div>
-<!-- Testimonial Start -->
+<!-- Testimonial Start -->--%>
+
+
+
+
+
+   <!-- Testimonial Start -->
+<div class="container-fluid bg-image py-5" style="margin: 90px 0;">
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-5 mb-5 mb-lg-0">
+                <div class="section-title position-relative mb-4">
+                    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Testimonial</h6>
+                    <h1 class="display-4">What Say Our Students</h1>
+                </div>
+                <p class="m-0">Hear from our students about their learning experience and how our courses helped them grow professionally.</p>
+            </div>
+            <div class="col-lg-7">
+                <div class="owl-carousel testimonial-carousel">
+                    <asp:Repeater ID="rptReviews" runat="server">
+                        <ItemTemplate>
+                            <div class="bg-white p-5">
+                                <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
+                                <p><%# Eval("ReviewText") %></p>
+                                <div class="d-flex flex-shrink-0 align-items-center mt-4">
+                                    <%--<img class="img-fluid mr-4" src='<%# Eval("ProfilePic") %>' alt="" style="width: 60px; height: 60px; border-radius: 50%;" />--%>
+                                    <asp:Image class="img-fluid mr-4" ID="Image2" runat="server" src='<%# ResolveUrl(Eval("ProfilePic").ToString()) %>' alt="" style="width: 60px; height: 60px; border-radius: 50%;" />
+
+
+                                    <div>
+                                        <h5><%# Eval("UserName") %></h5>
+                                        <span>
+                                            <%# GetStars(Convert.ToInt32(Eval("Rating"))) %>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- Contact Start -->

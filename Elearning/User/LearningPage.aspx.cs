@@ -68,14 +68,30 @@ namespace Elearning.User
         private void LoadTopics()
         {
             int subCourseID = Convert.ToInt32(hfSubCourseID.Value);
-            SqlCommand cmd = new SqlCommand("SELECT TopicID, TopicName FROM Topics WHERE SubCourseID = @SubCourseID", conn);
+            int userID = Convert.ToInt32(Session["UserID"]);
+
+            string query = @"
+        SELECT t.TopicID, t.TopicName,
+        CASE 
+            WHEN EXISTS (
+                SELECT 1 FROM TopicCompletion 
+                WHERE TopicID = t.TopicID AND UserID = @UserID
+            ) THEN 1 ELSE 0
+        END AS IsWatched
+        FROM Topics t
+        WHERE t.SubCourseID = @SubCourseID";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@SubCourseID", subCourseID);
+            cmd.Parameters.AddWithValue("@UserID", userID);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
+
             rptTopics.DataSource = dt;
             rptTopics.DataBind();
         }
+
 
         protected void rptTopics_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
@@ -100,7 +116,31 @@ namespace Elearning.User
             {
                 ltVideo.Text = dt.Rows[0]["VideoEmbedCode"].ToString();
             }
+
+            // Mark as watched
+            int userID = Convert.ToInt32(Session["UserID"]);
+
+            SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM TopicCompletion WHERE UserID=@UserID AND TopicID=@TopicID", conn);
+            checkCmd.Parameters.AddWithValue("@UserID", userID);
+            checkCmd.Parameters.AddWithValue("@TopicID", topicID);
+            conn.Open();
+            int count = Convert.ToInt32(checkCmd.ExecuteScalar());
+            conn.Close();
+
+            if (count == 0)
+            {
+                SqlCommand insertCmd = new SqlCommand("INSERT INTO TopicCompletion(UserID, TopicID) VALUES(@UserID, @TopicID)", conn);
+                insertCmd.Parameters.AddWithValue("@UserID", userID);
+                insertCmd.Parameters.AddWithValue("@TopicID", topicID);
+                conn.Open();
+                insertCmd.ExecuteNonQuery();
+                conn.Close();
+            }
+
+            // Refresh topic list to show updated checkbox
+            LoadTopics();
         }
+
 
         protected void btnDownloadAssignment_Click(object sender, EventArgs e)
         {
@@ -331,10 +371,57 @@ namespace Elearning.User
 
 
 
+        //protected void btnSubmitRating_Click(object sender, EventArgs e)
+        //{
+        //    int subCourseId = Convert.ToInt32(hfSubCourseID.Value);
+        //    int userId = Convert.ToInt32(Session["UserID"]); // Or however you're storing logged-in user ID
+        //    int rating = Convert.ToInt32(ddlRating.SelectedValue);
+        //    string review = txtReview.Text.Trim();
+        //    DateTime now = DateTime.Now;
+
+        //    string constr = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
+        //    using (SqlConnection con = new SqlConnection(constr))
+        //    {
+        //        con.Open();
+
+        //        // Insert rating
+        //        SqlCommand cmd = new SqlCommand(@"INSERT INTO Ratings (UserID, SubCourseID, Rating, Review, CreatedDate)
+        //                                  VALUES (@UserID, @SubCourseID, @Rating, @Review, @CreatedDate)", con);
+        //        cmd.Parameters.AddWithValue("@UserID", userId);
+        //        cmd.Parameters.AddWithValue("@SubCourseID", subCourseId);
+        //        cmd.Parameters.AddWithValue("@Rating", rating);
+        //        cmd.Parameters.AddWithValue("@Review", review);
+        //        cmd.Parameters.AddWithValue("@CreatedDate", now);
+        //        cmd.ExecuteNonQuery();
+
+        //        // Update average rating
+        //        SqlCommand avgCmd = new SqlCommand(@"SELECT AVG(CAST(Rating AS FLOAT)) FROM Ratings WHERE SubCourseID = @SubCourseID", con);
+        //        avgCmd.Parameters.AddWithValue("@SubCourseID", subCourseId);
+        //        object avgObj = avgCmd.ExecuteScalar();
+        //        double avgRating = avgObj != DBNull.Value ? Convert.ToDouble(avgObj) : 0;
+
+        //        SqlCommand updateRatingCmd = new SqlCommand(@"UPDATE SubCourses SET Rating = @AvgRating WHERE SubCourseID = @SubCourseID", con);
+        //        updateRatingCmd.Parameters.AddWithValue("@AvgRating", avgRating);
+        //        updateRatingCmd.Parameters.AddWithValue("@SubCourseID", subCourseId);
+        //        updateRatingCmd.ExecuteNonQuery();
+        //    }
+
+        //    lblRatingMessage.Text = "Thank you for your review!";
+        //    ddlRating.ClearSelection();
+        //    txtReview.Text = "";
+        //}
+
         protected void btnSubmitRating_Click(object sender, EventArgs e)
         {
+            if (ddlRating.SelectedIndex == 0 || string.IsNullOrWhiteSpace(ddlRating.SelectedValue))
+            {
+                lblRatingMessage.Text = "Please select a rating before submitting.";
+                lblRatingMessage.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+
             int subCourseId = Convert.ToInt32(hfSubCourseID.Value);
-            int userId = Convert.ToInt32(Session["UserID"]); // Or however you're storing logged-in user ID
+            int userId = Convert.ToInt32(Session["UserID"]);
             int rating = Convert.ToInt32(ddlRating.SelectedValue);
             string review = txtReview.Text.Trim();
             DateTime now = DateTime.Now;
@@ -344,7 +431,6 @@ namespace Elearning.User
             {
                 con.Open();
 
-                // Insert rating
                 SqlCommand cmd = new SqlCommand(@"INSERT INTO Ratings (UserID, SubCourseID, Rating, Review, CreatedDate)
                                           VALUES (@UserID, @SubCourseID, @Rating, @Review, @CreatedDate)", con);
                 cmd.Parameters.AddWithValue("@UserID", userId);
@@ -354,7 +440,6 @@ namespace Elearning.User
                 cmd.Parameters.AddWithValue("@CreatedDate", now);
                 cmd.ExecuteNonQuery();
 
-                // Update average rating
                 SqlCommand avgCmd = new SqlCommand(@"SELECT AVG(CAST(Rating AS FLOAT)) FROM Ratings WHERE SubCourseID = @SubCourseID", con);
                 avgCmd.Parameters.AddWithValue("@SubCourseID", subCourseId);
                 object avgObj = avgCmd.ExecuteScalar();
@@ -367,6 +452,7 @@ namespace Elearning.User
             }
 
             lblRatingMessage.Text = "Thank you for your review!";
+            lblRatingMessage.ForeColor = System.Drawing.Color.Green;
             ddlRating.ClearSelection();
             txtReview.Text = "";
         }
