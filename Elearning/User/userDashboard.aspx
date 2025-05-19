@@ -1,5 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/User.Master" AutoEventWireup="true" CodeBehind="userDashboard.aspx.cs" Inherits="Elearning.User.userDashboard" %>
 
+
+<%@ Register Assembly="System.Web.DataVisualization" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
+
+
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <!-- Add custom styles if needed -->
     <style>
@@ -19,6 +25,11 @@
             font-weight: bold;
             font-size: 14px;
         }
+        .chart-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
     </style>
 </asp:Content>
 
@@ -77,6 +88,37 @@
                 </ItemTemplate>
             </asp:Repeater>
         </div>
+
+
+
+
+
+
+        <div class="row mt-5">
+    <div class="col-md-6 offset-md-3">
+        <asp:Chart ID="ChartProgress" runat="server" Width="600px" Height="400px">
+
+            <Series>
+                <asp:Series Name="Progress" ChartType="Pie" />
+            </Series>
+            <ChartAreas>
+                <asp:ChartArea Name="ChartArea1" />
+            </ChartAreas>
+            <Legends>
+                <asp:Legend Name="Legend1" />
+            </Legends>
+        </asp:Chart>
+    </div>
+</div>
+
+
+
+       
+
+
+
+
+
     </div>
 
 </asp:Content>

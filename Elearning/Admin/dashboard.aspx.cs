@@ -28,7 +28,7 @@ namespace Elearning.Admin
                 LoadSalesYearDropdown();
                 LoadMasterCourseDropdown();
 
-                //BindYearDropdown();
+                BindYearDropdown();
             }
         }
 
@@ -102,19 +102,34 @@ namespace Elearning.Admin
 
         protected void LoadSalesChart()
         {
-            int selectedYear = 2020;
+            int selectedYear = GetLatestSaleYear();
+            if (selectedYear == 0) return; // no data
+
             con.Open();
             SqlCommand cmd = new SqlCommand("sale_data", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@year", selectedYear);
             SqlDataReader dr = cmd.ExecuteReader();
 
-
             Chart2.Series["Sales"].Points.DataBind(dr, "month", "count", null);
             dr.Close();
             con.Close();
-
         }
+
+        private int GetLatestSaleYear()
+        {
+            int year = 0;
+            con.Open();
+            SqlCommand cmd = new SqlCommand("SELECT MAX(YEAR(SaleDate)) FROM Sales", con);
+            object result = cmd.ExecuteScalar();
+            if (result != DBNull.Value)
+            {
+                year = Convert.ToInt32(result);
+            }
+            con.Close();
+            return year;
+        }
+
 
 
         void LoadPieChart()
@@ -144,6 +159,10 @@ namespace Elearning.Admin
             DropDownList2.DataBind();
             DropDownList2.Items.Insert(0, new ListItem("--Select Year--", "0"));
         }
+
+
+
+        //
 
 
         //protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
@@ -176,7 +195,7 @@ namespace Elearning.Admin
         {
             int year = Convert.ToInt32(DropDownList2.SelectedValue);
 
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Duplicate"].ConnectionString);
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ConnectionString);
             SqlCommand cmd = new SqlCommand("sp_GetSalesGraphData", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Year", year);

@@ -21,6 +21,55 @@ namespace Elearning.User
                 gettotalcourses();
                 gettotaltopics();
                 LoadCourseProgress();
+
+
+                //if (Session["UserID"] != null && Session["Role"] != null)
+                //{
+                //    string role = Session["Role"].ToString();
+
+                //    // Only apply 7-day check for normal users, not admins
+                //    if (role.Equals("User", StringComparison.OrdinalIgnoreCase))
+                //    {
+                //        int userId = Convert.ToInt32(Session["UserID"]);
+
+                //        using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ConnectionString))
+                //        {
+                //            con.Open();
+
+                //            // Get last login date
+                //            string selectQuery = "SELECT LastLoginDate FROM UserLoginTracker WHERE UserID = @UserID";
+                //            using (SqlCommand cmd = new SqlCommand(selectQuery, con))
+                //            {
+                //                cmd.Parameters.AddWithValue("@UserID", userId);
+                //                object result = cmd.ExecuteScalar();
+
+                //                if (result != null && result != DBNull.Value)
+                //                {
+                //                    DateTime lastLoginDate = Convert.ToDateTime(result);
+                //                    TimeSpan difference = DateTime.Now - lastLoginDate;
+
+                //                    if (difference.TotalDays > 7)
+                //                    {
+                //                        // Update status to Inactive in Users table
+                //                        string updateStatus = "UPDATE Users SET Status = 'Inactive' WHERE UserID = @UserID";
+                //                        using (SqlCommand updateCmd = new SqlCommand(updateStatus, con))
+                //                        {
+                //                            updateCmd.Parameters.AddWithValue("@UserID", userId);
+                //                            updateCmd.ExecuteNonQuery();
+                //                        }
+                //                    }
+                //                }
+                //            }
+                //        }
+                //    }
+                //}
+
+
+
+
+
+
+
             }
             
         }
@@ -65,8 +114,43 @@ namespace Elearning.User
                     row["ProgressPercent"] = percent;
                 }
 
+
+
                 rptProgress.DataSource = dt;
                 rptProgress.DataBind();
+
+
+
+
+                // Calculate overall completion
+                int totalTopics = 0;
+                int totalCompleted = 0;
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    totalTopics += Convert.ToInt32(row["TotalTopics"]);
+                    totalCompleted += Convert.ToInt32(row["CompletedTopics"]);
+                }
+
+                int totalIncomplete = totalTopics - totalCompleted;
+
+                // Bind to pie chart
+                ChartProgress.Series["Progress"].Points.Clear();
+                ChartProgress.Series["Progress"].Points.AddXY("Completed", totalCompleted);
+                ChartProgress.Series["Progress"].Points.AddXY("Incomplete", totalIncomplete);
+
+                // Optional styling
+                ChartProgress.Series["Progress"]["PieLabelStyle"] = "Outside";
+                ChartProgress.Series["Progress"].Label = "#VALX (#PERCENT)";
+                ChartProgress.Series["Progress"].LegendText = "#VALX";
+                ChartProgress.ChartAreas["ChartArea1"].Area3DStyle.Enable3D = true;
+
+
+
+
+
+
+
             }
         }
 

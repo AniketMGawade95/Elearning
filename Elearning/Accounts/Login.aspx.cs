@@ -38,8 +38,76 @@ namespace Elearning.Accounts
                 Session["Emailid"] = dr["Email"].ToString();
                 Session["ProfilePic"] = dr["ProfilePic"].ToString();
 
+
+
+                int userId = Convert.ToInt32(dr["UserID"]);
+
+                string Role = dr["Role"].ToString();
+
                 string role = dr["Role"].ToString().ToLower();
                 conn.Close();
+
+
+
+
+                DateTime now = DateTime.Now;
+
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ConnectionString))
+                {
+                    con.Open();
+
+                    if (Role.Equals("user", StringComparison.OrdinalIgnoreCase))
+                    {
+                        // Step 1: Get last login (excluding today)
+                        string lastLoginQuery = @"
+            SELECT TOP 1 LastLoginDate 
+            FROM UserLoginTracker 
+            WHERE UserID = @UserID 
+              AND CAST(LastLoginDate AS DATE) < CAST(GETDATE() AS DATE)
+            ORDER BY LastLoginDate DESC";
+
+                        using (SqlCommand lastCmd = new SqlCommand(lastLoginQuery, con))
+                        {
+                            lastCmd.Parameters.AddWithValue("@UserID", userId);
+                            object result = lastCmd.ExecuteScalar();
+
+                            if (result != null && result != DBNull.Value)
+                            {
+                                DateTime lastLogin = Convert.ToDateTime(result);
+                                TimeSpan gap = now - lastLogin;
+
+                                if (gap.TotalDays > 7)
+                                {
+                                    string updateStatus = "UPDATE Users SET Status = 'Inactive' WHERE UserID = @UserID";
+                                    using (SqlCommand updateCmd = new SqlCommand(updateStatus, con))
+                                    {
+                                        updateCmd.Parameters.AddWithValue("@UserID", userId);
+                                        int rows = updateCmd.ExecuteNonQuery();
+                                        System.Diagnostics.Debug.WriteLine("Rows updated to Inactive: " + rows);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // Step 2: Insert today's login
+                    string insertLogin = "INSERT INTO UserLoginTracker (UserID, LastLoginDate) VALUES (@UserID, @LoginDate)";
+                    using (SqlCommand insertCmd = new SqlCommand(insertLogin, con))
+                    {
+                        insertCmd.Parameters.AddWithValue("@UserID", userId);
+                        insertCmd.Parameters.AddWithValue("@LoginDate", now);
+                        insertCmd.ExecuteNonQuery();
+                    }
+                }
+
+
+
+
+
+
+
+
+
 
                 if (role == "admin")
                 {

@@ -2,20 +2,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <%--<style>
-        .topic-list {
-            width: 20%;
-            float: right;
-        }
-        .content-pane {
-            width: 75%;
-            float: left;
-        }
-        iframe {
-            width: 100%;
-            height: 400px;
-        }
-    </style>--%>
+    
 
     <style>
         .card-body::-webkit-scrollbar {
@@ -33,24 +20,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <%--<asp:HiddenField ID="hfSubCourseID" runat="server" />
-
-        <div class="content-pane">
-            <asp:Literal ID="ltVideo" runat="server"></asp:Literal>
-            <br /><br />
-            <asp:Button ID="btnDownloadAssignment" runat="server" Text="Download Assignment" OnClick="btnDownloadAssignment_Click" />
-            <asp:Button ID="btnMCQTest" runat="server" Text="Take MCQ Test" OnClick="btnMCQTest_Click" />
-            <asp:Button ID="btnDownloadCertificate" runat="server" Text="Download Certificate" OnClick="btnDownloadCertificate_Click" Visible="false" />
-        </div>
-
-        <div class="topic-list">
-            <asp:Repeater ID="rptTopics" runat="server" OnItemCommand="rptTopics_ItemCommand">
-                <ItemTemplate>
-                    <asp:LinkButton ID="lnkTopic" runat="server" Text='<%# Eval("TopicName") %>' CommandArgument='<%# Eval("TopicID") %>' CommandName="Select" />
-                    <br />
-                </ItemTemplate>
-            </asp:Repeater>
-        </div>--%>
+   
         
 
 
@@ -152,7 +122,7 @@
             <div class="mb-3 border p-3 rounded">
                 <strong>Q<%# Container.ItemIndex + 1 %>: <%# Eval("Question") %></strong>
 
-                <div class="form-check">
+                <%--<div class="form-check">
                     <asp:CheckBox ID="chkOptionA" runat="server" Text='<%# Eval("OptionA") %>' GroupName='<%# "q" + Container.ItemIndex %>' />
                 </div>
                 <div class="form-check">
@@ -163,13 +133,26 @@
                 </div>
                 <div class="form-check">
                     <asp:CheckBox ID="chkOptionD" runat="server" Text='<%# Eval("OptionD") %>' GroupName='<%# "q" + Container.ItemIndex %>' />
-                </div>
+                </div>--%>
 
 
 
-                
+                <div class="form-check">
+    <asp:RadioButton ID="rdoOptionA" runat="server" GroupName='<%# "q" + Container.ItemIndex %>' Text='<%# Eval("OptionA") %>' />
+</div>
+<div class="form-check">
+    <asp:RadioButton ID="rdoOptionB" runat="server" GroupName='<%# "q" + Container.ItemIndex %>' Text='<%# Eval("OptionB") %>' />
+</div>
+<div class="form-check">
+    <asp:RadioButton ID="rdoOptionC" runat="server" GroupName='<%# "q" + Container.ItemIndex %>' Text='<%# Eval("OptionC") %>' />
+</div>
+<div class="form-check">
+    <asp:RadioButton ID="rdoOptionD" runat="server" GroupName='<%# "q" + Container.ItemIndex %>' Text='<%# Eval("OptionD") %>' />
+</div>
 
 
+
+                <asp:HiddenField ID="hfCorrectAnswer" runat="server" Value='<%# Eval("Answer") %>' />
 
 
             </div>

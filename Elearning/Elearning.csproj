@@ -2068,6 +2068,7 @@
     <Content Include="Admin\dashboard.aspx" />
     <Content Include="Admin\Materials.aspx" />
     <Content Include="Admin\Membership.aspx" />
+    <Content Include="Admin\userlist.aspx" />
     <Content Include="MasterPages\css\style.css" />
     <Content Include="MasterPages\css\style.min.css" />
     <Content Include="MasterPages\dist\css\adminlte.css" />
@@ -3935,6 +3936,13 @@
     </Compile>
     <Compile Include="Admin\Membership.aspx.designer.cs">
       <DependentUpon>Membership.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\userlist.aspx.cs">
+      <DependentUpon>userlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\userlist.aspx.designer.cs">
+      <DependentUpon>userlist.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPages\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>

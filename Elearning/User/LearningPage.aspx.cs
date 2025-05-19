@@ -19,15 +19,7 @@ namespace Elearning.User
     {
         SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["con"].ConnectionString);
 
-        //protected void Page_Load(object sender, EventArgs e)
-        //{
-        //    if (!IsPostBack)
-        //    {
-        //        //hfSubCourseID.Value = "11"; 
-        //        hfSubCourseID.Value = Session["SelectedSubCourseID"].ToString(); 
-        //        LoadTopics();
-        //    }
-        //}
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -323,93 +315,88 @@ namespace Elearning.User
         }
 
 
+        //protected void btnSubmitMCQAnswers_Click(object sender, EventArgs e)
+        //{
+        //    if (ViewState["CurrentMCQs"] == null)
+        //    {
+        //        ltMCQResult.Text = "<div class='alert alert-danger'>Please load the MCQs first.</div>";
+        //        return;
+        //    }
+
+        //    DataTable mcqs = (DataTable)ViewState["CurrentMCQs"];
+        //    int score = 0;
+
+        //    for (int i = 0; i < mcqs.Rows.Count; i++)
+        //    {
+        //        DataRow row = mcqs.Rows[i];
+        //        string correctAnswer = row["Answer"].ToString().Trim().ToUpper(); // e.g. "A", "B", etc.
+
+        //        // Find the checkbox controls for this question in the Repeater
+        //        RepeaterItem item = rptMCQs.Items[i];
+        //        bool isCorrect = false;
+
+        //        // Check which checkboxes are checked
+        //        List<string> selectedOptions = new List<string>();
+
+        //        if (((CheckBox)item.FindControl("chkOptionA")).Checked) selectedOptions.Add("A");
+        //        if (((CheckBox)item.FindControl("chkOptionB")).Checked) selectedOptions.Add("B");
+        //        if (((CheckBox)item.FindControl("chkOptionC")).Checked) selectedOptions.Add("C");
+        //        if (((CheckBox)item.FindControl("chkOptionD")).Checked) selectedOptions.Add("D");
+
+        //        // Scoring logic:
+        //        // If multiple correct answers exist, you can compare accordingly.
+        //        // Assuming only one correct answer here:
+
+        //        if (selectedOptions.Count == 1 && selectedOptions[0] == correctAnswer)
+        //        {
+        //            isCorrect = true;
+        //        }
+
+        //        if (isCorrect)
+        //            score++;
+        //    }
+
+        //    ltMCQResult.Text = $"<div class='alert alert-success'>Your Score: {score} out of {mcqs.Rows.Count}</div>";
+        //}
+
         protected void btnSubmitMCQAnswers_Click(object sender, EventArgs e)
         {
-            if (ViewState["CurrentMCQs"] == null)
+            int correctCount = 0;
+            int totalQuestions = rptMCQs.Items.Count;
+
+            foreach (RepeaterItem item in rptMCQs.Items)
             {
-                ltMCQResult.Text = "<div class='alert alert-danger'>Please load the MCQs first.</div>";
-                return;
-            }
+                RadioButton rdoA = (RadioButton)item.FindControl("rdoOptionA");
+                RadioButton rdoB = (RadioButton)item.FindControl("rdoOptionB");
+                RadioButton rdoC = (RadioButton)item.FindControl("rdoOptionC");
+                RadioButton rdoD = (RadioButton)item.FindControl("rdoOptionD");
 
-            DataTable mcqs = (DataTable)ViewState["CurrentMCQs"];
-            int score = 0;
+                HiddenField hfCorrectAnswer = (HiddenField)item.FindControl("hfCorrectAnswer");
+                string correctAnswer = hfCorrectAnswer.Value.Trim(); // from DB
 
-            for (int i = 0; i < mcqs.Rows.Count; i++)
-            {
-                DataRow row = mcqs.Rows[i];
-                string correctAnswer = row["Answer"].ToString().Trim().ToUpper(); // e.g. "A", "B", etc.
+                string selectedAnswer = "";
 
-                // Find the checkbox controls for this question in the Repeater
-                RepeaterItem item = rptMCQs.Items[i];
-                bool isCorrect = false;
+                if (rdoA.Checked) selectedAnswer = rdoA.Text.Trim();
+                else if (rdoB.Checked) selectedAnswer = rdoB.Text.Trim();
+                else if (rdoC.Checked) selectedAnswer = rdoC.Text.Trim();
+                else if (rdoD.Checked) selectedAnswer = rdoD.Text.Trim();
 
-                // Check which checkboxes are checked
-                List<string> selectedOptions = new List<string>();
-
-                if (((CheckBox)item.FindControl("chkOptionA")).Checked) selectedOptions.Add("A");
-                if (((CheckBox)item.FindControl("chkOptionB")).Checked) selectedOptions.Add("B");
-                if (((CheckBox)item.FindControl("chkOptionC")).Checked) selectedOptions.Add("C");
-                if (((CheckBox)item.FindControl("chkOptionD")).Checked) selectedOptions.Add("D");
-
-                // Scoring logic:
-                // If multiple correct answers exist, you can compare accordingly.
-                // Assuming only one correct answer here:
-
-                if (selectedOptions.Count == 1 && selectedOptions[0] == correctAnswer)
+                if (selectedAnswer == correctAnswer)
                 {
-                    isCorrect = true;
+                    correctCount++;
                 }
-
-                if (isCorrect)
-                    score++;
             }
 
-            ltMCQResult.Text = $"<div class='alert alert-success'>Your Score: {score} out of {mcqs.Rows.Count}</div>";
+            ltMCQResult.Text = $"Your score: {correctCount} out of {totalQuestions}";
+            pnlMCQResult.Visible = true;
         }
 
 
 
 
 
-        //protected void btnSubmitRating_Click(object sender, EventArgs e)
-        //{
-        //    int subCourseId = Convert.ToInt32(hfSubCourseID.Value);
-        //    int userId = Convert.ToInt32(Session["UserID"]); // Or however you're storing logged-in user ID
-        //    int rating = Convert.ToInt32(ddlRating.SelectedValue);
-        //    string review = txtReview.Text.Trim();
-        //    DateTime now = DateTime.Now;
 
-        //    string constr = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
-        //    using (SqlConnection con = new SqlConnection(constr))
-        //    {
-        //        con.Open();
 
-        //        // Insert rating
-        //        SqlCommand cmd = new SqlCommand(@"INSERT INTO Ratings (UserID, SubCourseID, Rating, Review, CreatedDate)
-        //                                  VALUES (@UserID, @SubCourseID, @Rating, @Review, @CreatedDate)", con);
-        //        cmd.Parameters.AddWithValue("@UserID", userId);
-        //        cmd.Parameters.AddWithValue("@SubCourseID", subCourseId);
-        //        cmd.Parameters.AddWithValue("@Rating", rating);
-        //        cmd.Parameters.AddWithValue("@Review", review);
-        //        cmd.Parameters.AddWithValue("@CreatedDate", now);
-        //        cmd.ExecuteNonQuery();
-
-        //        // Update average rating
-        //        SqlCommand avgCmd = new SqlCommand(@"SELECT AVG(CAST(Rating AS FLOAT)) FROM Ratings WHERE SubCourseID = @SubCourseID", con);
-        //        avgCmd.Parameters.AddWithValue("@SubCourseID", subCourseId);
-        //        object avgObj = avgCmd.ExecuteScalar();
-        //        double avgRating = avgObj != DBNull.Value ? Convert.ToDouble(avgObj) : 0;
-
-        //        SqlCommand updateRatingCmd = new SqlCommand(@"UPDATE SubCourses SET Rating = @AvgRating WHERE SubCourseID = @SubCourseID", con);
-        //        updateRatingCmd.Parameters.AddWithValue("@AvgRating", avgRating);
-        //        updateRatingCmd.Parameters.AddWithValue("@SubCourseID", subCourseId);
-        //        updateRatingCmd.ExecuteNonQuery();
-        //    }
-
-        //    lblRatingMessage.Text = "Thank you for your review!";
-        //    ddlRating.ClearSelection();
-        //    txtReview.Text = "";
-        //}
 
         protected void btnSubmitRating_Click(object sender, EventArgs e)
         {
