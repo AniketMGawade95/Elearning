@@ -16,52 +16,101 @@ namespace Elearning.User
         {
             string cs = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
             conn = new SqlConnection(cs);
-            conn.Open();
 
             if (!IsPostBack)
             {
-                LoadPlans();
+                conn.Open();
+                LoadSubscriptionPlans();
             }
         }
 
-        private void LoadPlans()
+        private void LoadSubscriptionPlans()
         {
-            string query = " EXEC FETCHSubscriptionPlan";
-
+            string query = "fetchUserSubscriptionPlan";
             SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataReader rdr = cmd.ExecuteReader();
-            Repeater1.DataSource = rdr;
-            Repeater1.DataBind();
+            SqlDataReader reader = cmd.ExecuteReader();
+            DataList1.DataSource = reader;
+            DataList1.DataBind();
+            reader.Close();
         }
 
-        protected void btnBuy_Click(object sender, EventArgs e)
+        protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
-            Button btn = (Button)sender;
-            double planId = double.Parse(btn.CommandArgument);
-            //Response.Redirect("Cart.aspx?planId=" + planId);
+            if (e.CommandName == "BuyNow")
+            {
+                string[] args = e.CommandArgument.ToString().Split('|');
+                string masterCourse = args[0];
+                string subscriptionPlanIDStr = args[1]; 
+                string planName = args[2];
+                string price = args[3];
+                string validity = args[4];
+
+                int userId = Convert.ToInt32(Session["UserID"].ToString());
+                int subscriptionPlanId = Convert.ToInt32(subscriptionPlanIDStr); 
 
 
-            string keyId = "rzp_test_Kl7588Yie2yJTV";
-            string keySecret = "6dN9Nqs7M6HPFMlL45AhaTgp";
-
-            RazorpayClient razorpayClient = new RazorpayClient(keyId, keySecret);
-
-            double amount = planId;
 
 
-            // Create an order
-            Dictionary<string, object> options = new Dictionary<string, object>();
-            options.Add("amount", amount * 100); // Amount should be in paisa (multiply by 100 for rupees)
-            options.Add("currency", "INR");
-            options.Add("receipt", "order_receipt_123");
-            options.Add("payment_capture", 1); // Auto capture payment
+                string query = @"
+INSERT INTO MyCourses (UserID, SubCourseID, AddedAt, SubCourseName, Picture, Duration)
+SELECT
+    @UserID,
+    sc.SubCourseID,
+    GETDATE(),
+    sc.SubCourseName,
+    sc.Picture,
+    sc.Duration
+FROM SubscriptionPlanSubCourses spsc
+JOIN SubCourses sc ON spsc.SubCourseID = sc.SubCourseID
+WHERE spsc.SubscriptionPlanID = @PlanID
+AND NOT EXISTS (
+    SELECT 1
+    FROM MyCourses mc
+    WHERE mc.UserID = @UserID AND mc.SubCourseID = sc.SubCourseID
+);";
 
-            Razorpay.Api.Order order = razorpayClient.Order.Create(options);
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ConnectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@UserID", userId);
+                        cmd.Parameters.AddWithValue("@PlanID", subscriptionPlanId);
 
-            string orderId = order["id"].ToString();
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        
+                    }
+                }
 
-            // Generate checkout form and redirect user to Razorpay payment page
-            string razorpayScript = $@"
+
+
+
+
+
+
+
+
+                string keyId = "rzp_test_Kl7588Yie2yJTV";
+                string keySecret = "6dN9Nqs7M6HPFMlL45AhaTgp";
+
+                RazorpayClient razorpayClient = new RazorpayClient(keyId, keySecret);
+
+                double amount = double.Parse(price);
+
+
+                // Create an order
+                Dictionary<string, object> options = new Dictionary<string, object>();
+                options.Add("amount", amount * 100); // Amount should be in paisa (multiply by 100 for rupees)
+                options.Add("currency", "INR");
+                options.Add("receipt", "order_receipt_123");
+                options.Add("payment_capture", 1); // Auto capture payment
+
+                Razorpay.Api.Order order = razorpayClient.Order.Create(options);
+
+                string orderId = order["id"].ToString();
+
+                // Generate checkout form and redirect user to Razorpay payment page
+                string razorpayScript = $@"
             var options = {{
                 'key': '{keyId}',
                 'amount': {amount * 100},
@@ -86,18 +135,32 @@ namespace Elearning.User
             var rzp1 = new Razorpay(options);
             rzp1.open();";
 
-            // Register the script on the page
+                // Register the script on the page
 
-            ClientScript.RegisterStartupScript(this.GetType(), "razorpayScript", razorpayScript, true);
-
-            //Response.Redirect("MyCourses.aspx");
+                ClientScript.RegisterStartupScript(this.GetType(), "razorpayScript", razorpayScript, true);
 
 
 
 
+
+                //Response.Redirect($"Buy.aspx?course={masterCourse}&subscriptionplanid={subscriptionPlanID}&plan={planName}&price={price}&validity={validity}");
+            }
         }
 
-
+        public string GetPlanClass(string planName)
+        {
+            switch (planName.ToLower())
+            {
+                case "gold":
+                    return "gold";
+                case "silver":
+                    return "silver";
+                case "bronze":
+                    return "bronze";
+                default:
+                    return "silver";
+            }
+        }
 
 
     }

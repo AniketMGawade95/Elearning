@@ -5,27 +5,97 @@
 
      <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
-        <style>
-        .plan-card {
-    transition: 0.3s;
-    box-shadow: 2px 2px 10px #ddd;
-}
+        <!-- Bootstrap 5 CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+    }
 
-.plan-card:hover {
-    transform: scale(1.02);
-    box-shadow: 3px 3px 15px #bbb;
-}
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
 
-.buy-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-}
+    .card {
+        width: 300px;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        color: #fff;
+    }
 
-    </style>
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
 
+    .gold {
+        background-color: #FFD700;
+        color: #000;
+    }
+
+    .silver {
+        background-color: #C0C0C0;
+        color: #000;
+    }
+
+    .bronze {
+        background-color: #CD7F32;
+        color: #fff;
+    }
+
+    .card h2 {
+        margin-top: 0;
+        font-size: 22px;
+    }
+
+    .card p {
+        margin: 6px 0;
+        font-weight: 500;
+    }
+
+    .price {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .buy-button {
+        margin-top: 10px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        width: 100%;
+        transition: opacity 0.3s ease;
+    }
+
+    .gold .buy-button {
+        background-color: #e6be00;
+        color: #000;
+    }
+
+    .silver .buy-button {
+        background-color: #b0b0b0;
+        color: #000;
+    }
+
+    .bronze .buy-button {
+        background-color: #a0522d;
+        color: #fff;
+    }
+
+    .buy-button:hover {
+        opacity: 0.9;
+    }
+</style>
 
 </asp:Content>
 
@@ -34,7 +104,7 @@
 
 
 
-  <div>
+ <%-- <div>
     <asp:Repeater ID="Repeater1" runat="server" >
         <ItemTemplate>
             <div class="plan-card" style="border:1px solid #ccc; padding:15px; margin:10px; border-radius:8px;">
@@ -50,6 +120,25 @@
     </asp:Repeater>
 
 
+</div>--%>
+
+
+
+
+    <div class="card-container">
+    <asp:DataList ID="DataList1" runat="server" OnItemCommand="DataList1_ItemCommand" RepeatDirection="Horizontal" RepeatColumns="3" CellPadding="10">
+        <ItemTemplate>
+            <div class='<%# GetPlanClass(Eval("PlanName").ToString()) %> card'>
+                <h2><%# Eval("MasterCourseName") %> - <%# Eval("PlanName") %></h2>
+                <hr />
+                <p>Features: <%# Eval("Features") %></p>
+                <p>Price: <strong class="price">₹ <%# Eval("Price") %></strong></p>
+                <p>Validity: <%# Eval("Validity") %> days</p>
+                <asp:Button ID="btnBuy" runat="server" Text="Buy" CssClass="buy-button" CommandName="BuyNow"
+                    CommandArgument='<%# Eval("MasterCourseName") + "|" + Eval("SubscriptionPlanID") + "|" + Eval("PlanName") + "|" + Eval("Price") + "|" + Eval("Validity") %>' />
+            </div>
+        </ItemTemplate>
+    </asp:DataList>
 </div>
 
 
