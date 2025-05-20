@@ -1,6 +1,5 @@
 ﻿
 
-<%-- dsadfa --%>
 
 <%@ Page Title="Subscription Plans" Language="C#" MasterPageFile="~/MasterPages/User.Master" AutoEventWireup="true" CodeBehind="membership.aspx.cs" Inherits="Elearning.User.membership" %>
 

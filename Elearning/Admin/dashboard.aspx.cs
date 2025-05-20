@@ -112,7 +112,7 @@ namespace Elearning.Admin
             SqlDataReader dr = cmd.ExecuteReader();
 
             Chart2.Series["Sales"].Points.DataBind(dr, "month", "count", null);
-            dr.Close();
+            //            dr.Close();
             con.Close();
         }
 

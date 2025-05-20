@@ -135,7 +135,7 @@ namespace Elearning.User
 
             RazorpayClient razorpayClient = new RazorpayClient(keyId, keySecret);
 
-            double amount = double.Parse(lblTotalPrice.Text);
+            int amount = int.Parse(lblTotalPrice.Text);
 
 
             // Create an order
