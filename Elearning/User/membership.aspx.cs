@@ -147,7 +147,23 @@ AND NOT EXISTS (
             }
         }
 
-        public string GetPlanClass(string planName)
+        //public string GetPlanClass(string planName)
+        //{
+        //    switch (planName.ToLower())
+        //    {
+        //        case "gold":
+        //            return "gold";
+        //        case "silver":
+        //            return "silver";
+        //        case "bronze":
+        //            return "bronze";
+        //        default:
+        //            return "silver";
+        //    }
+        //}
+
+
+        protected string GetPlanClass(string planName)
         {
             switch (planName.ToLower())
             {
@@ -158,9 +174,10 @@ AND NOT EXISTS (
                 case "bronze":
                     return "bronze";
                 default:
-                    return "silver";
+                    return "bg-secondary";
             }
         }
+
 
 
     }

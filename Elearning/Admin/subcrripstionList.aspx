@@ -3,13 +3,45 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .table th, .table td {
+            vertical-align: middle !important;
+        }
+
+        .form-check-inline {
+            margin-right: 15px;
+        }
+
+        .modal-body .form-label {
+            font-weight: 500;
+        }
+
+        .checklist-container .form-check {
+            display: inline-block;
+            margin-right: 15px;
+        }
+    </style>
+
 </asp:Content>
 
 
 
+
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+
+
 
     <div class="container my-4">
     <h3 class="mb-4">Subscription Plans</h3>
@@ -86,4 +118,8 @@
         </div>
     </div>
 </div>
+
+
+
+
 </asp:Content>
